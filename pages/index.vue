@@ -1,7 +1,6 @@
 <template>
-    <div class="container">
-      <h1>Welcome to My Nuxt App!</h1>
-      <p>This is a simple landing page.</p>
+    <div class="my-20 px-10 lg:px-20 mx-auto">
+        <p>Hello world!</p>
     </div>
 </template>
   
