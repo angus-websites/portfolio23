@@ -24,8 +24,9 @@
                     </button>
                 </div>
                 <div class="hidden md:block">
-                    <button class="py-2 px-4 bg-blue-500 hover:bg-blue-600 rounded-md">Button</button>
+                    <ButtonsDarkToggle />
                 </div>
+
             </div>
             
         </nav>

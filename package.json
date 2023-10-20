@@ -19,6 +19,8 @@
   },
   "type": "module",
   "dependencies": {
-    "@directus/sdk": "^12.0.1"
+    "@directus/sdk": "^12.0.1",
+    "@heroicons/vue": "latest",
+    "postcss-loader": "^7.3.3"
   }
 }
