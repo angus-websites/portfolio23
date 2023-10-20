@@ -8,7 +8,7 @@ export default {
     "./app.vue",
     "./error.vue",
   ],
-  darkMode: 'class',
+  darkMode: ['class', '.dark-mode'],
   theme: {
     extend: {
       

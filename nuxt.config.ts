@@ -3,9 +3,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: { DIRECTUS_HOST: process.env.DIRECTUS_HOST},
   modules: ['@nuxtjs/color-mode'],
-  colorMode: {
-    classSuffix: ''
-  },
   css: ['~/assets/css/main.css'],
   postcss: {
     plugins: {
