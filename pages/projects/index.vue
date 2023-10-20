@@ -1,11 +1,14 @@
 <template>
     <PageContainer>
         <h1>My projects</h1>
-        <ul>
-            <li v-for="project in projects" :key="project.id">
-                <h2>{{project.title}}</h2>
-            </li>
-        </ul>
+        <p v-if="error">Error fetching projects</p>
+        <div v-else class="prose">
+            <ul class="list-disc">
+                <li v-for="project in projects" :key="project.id">
+                    <h2>{{project.title}}</h2>
+                </li>
+            </ul>
+        </div>
     </PageContainer>
 </template>
 <script lang="ts" setup>
@@ -19,7 +22,7 @@ interface Project {
   
 }
 
-const { data: projects } = await useAsyncData<{ data: Project[] }>('getProjects', () => {
+const { data: projects, error } = await useAsyncData<{ data: Project[] }>('getProjects', () => {
   return $directus.request(
     $readItems('projects', {
       fields: ['slug', 'title', 'short_description']
