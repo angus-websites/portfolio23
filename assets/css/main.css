@@ -3,3 +3,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Global styles */
+@layer base {
+    * {
+        @apply transition-colors duration-200; /* Add any other transition or delay classes here */
+    }
+}
