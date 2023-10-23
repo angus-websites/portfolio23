@@ -1,11 +1,16 @@
 <template>
     <PageContainer>
-        <h1>{{page.title}}</h1>
-        <p>{{page.sub_title}}</p>
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center">
+          <TitleAndSubitle :title="page.title" :subtitle="page.sub_title" />
+        </div>
+      </div>
     </PageContainer>
 </template>
 
 <script lang="ts" setup>
+import TitleAndSubitle from "~/components/TitleAndSubitle.vue";
+
 const { $directus, $readItems } = useNuxtApp()
 
 interface PageData {
