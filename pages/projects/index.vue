@@ -1,6 +1,6 @@
 <template>
     <PageContainer>
-        <TitleAndSubitle title="My Projects" subtitle="Some of my recent work..." />
+        <TitleAndSubtitle title="My Projects" subtitle="Some of my recent work..." />
         <p v-if="error">Error fetching projects</p>
         <div v-else class="grid grid-cols-3 gap-3 my-20">
           <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
@@ -11,7 +11,6 @@
 <script lang="ts" setup>
 
 import {Project} from "~/types/Project";
-import TitleAndSubitle from "~/components/TitleAndSubitle.vue";
 
 const { $directus, $readItems } = useNuxtApp()
 

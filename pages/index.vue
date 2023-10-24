@@ -2,14 +2,17 @@
     <PageContainer>
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
-          <TitleAndSubitle :title="page.title" :subtitle="page.sub_title" />
+          <TitleAndSubtitle :title="page.title" :subtitle="page.sub_title" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 mt-20">
+          <EmploymentBlock />
         </div>
       </div>
     </PageContainer>
 </template>
 
 <script lang="ts" setup>
-import TitleAndSubitle from "~/components/TitleAndSubitle.vue";
 
 const { $directus, $readItems } = useNuxtApp()
 
@@ -18,6 +21,7 @@ interface PageData {
   sub_title: string;  
 }
 
+// Ready the employments data
 const { data: page } = await useAsyncData<{ data: PageData}>('getPageDetails', () => {
   return $directus.request(
     $readItems('global', {
