@@ -1,6 +1,6 @@
 <template>
     <div class="text-white">
-        <nav class="mx-auto px-10 lg:px-20 py-4 flex items-center">
+        <nav class="mx-auto px-5 md:px-10 lg:px-20 py-4 flex items-center">
             <!-- Logo -->
             <div class="w-1/4 flex flex-row justify-start">
                 <div>

@@ -4,10 +4,9 @@
         <div class="mx-auto max-w-2xl text-center">
           <TitleAndSubtitle :title="page.title" :subtitle="page.sub_title" />
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 mt-20">
-          <EmploymentBlock />
-        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 mt-20">
+        <EmploymentBlock />
       </div>
     </PageContainer>
 </template>

@@ -15,7 +15,7 @@
 
     <!-- Content -->
     <div class="mt-5">
-      <div class="grid grid-cols-1 gap-y-3">
+      <div class="grid grid-cols-1 gap-y-8">
         <EmploymentRow v-for="employment in employments" :employment="employment" :key="employment.id" />
       </div>
     </div>
@@ -28,10 +28,11 @@ import {Employment} from "~/types/Employment";
 
 const { $directus, $readItems } = useNuxtApp()
 
+
 const { data: employments, error } = await useAsyncData<{ data: Employment[] }>('getEmployment', () => {
   return $directus.request(
       $readItems('employments', {
-        // Read all fields
+        sort: '-start_date',
         fields: ['*.*']
       })
   )

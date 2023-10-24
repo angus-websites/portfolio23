@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
 export default {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -10,6 +11,11 @@ export default {
   ],
   darkMode: ['class', '.dark-mode'],
   theme: {
+    screens: {
+      'xxs': '375px',
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     extend: {
       colors:{
         'evening-sea': {
