@@ -1,5 +1,5 @@
 <template>
-  <div class="rounded-xl bg-zinc-50 p-5 border">
+  <div class="p-5 border rounded-xl dark:border-white dark:border-opacity-0 bg-zinc-50 dark:bg-evening-sea-900 dark:bg-opacity-40">
 
     <!-- Top row -->
     <div class="flex flex-row items-center justify-start">
