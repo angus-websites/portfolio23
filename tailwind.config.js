@@ -17,6 +17,9 @@ export default {
       ...defaultTheme.screens,
     },
     extend: {
+      fontFamily: {
+        sans: ['Outfit', ...defaultTheme.fontFamily.sans],
+      },
       colors:{
         'evening-sea': {
           '50': '#ebfef7',

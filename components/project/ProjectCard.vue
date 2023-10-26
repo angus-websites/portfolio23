@@ -7,7 +7,7 @@
     <div class="p-5">
       <!-- Top row -->
       <div class="flex flex-row justify-between">
-        <div><h3 class="text-xl text-evening-sea-900 dark:text-zinc-50 font-bold tracking-tight">{{project.title}}</h3></div>
+        <div><h3 class="text-xl text-evening-sea-900 dark:text-zinc-50 font-semibold tracking-tight">{{project.title}}</h3></div>
         <div>
           <p class="text-evening-sea-700 dark:text-evening-sea-200">2023</p>
         </div>

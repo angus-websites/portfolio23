@@ -5,6 +5,7 @@
           <TitleAndSubtitle :title="page.title" :subtitle="page.sub_title" />
         </div>
       </div>
+
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 mt-20">
         <EmploymentBlock />
       </div>
