@@ -4,8 +4,8 @@
       <!-- Logo -->
       <div class="w-1/4 flex flex-row justify-start">
         <div>
-          <LogosLogo class="h-8 dark:hidden" />
-          <LogosLogoDarkMode class="h-8 hidden dark:block" />
+          <LogoLightMode class="h-8 dark:hidden" />
+          <LogoDarkMode class="h-8 hidden dark:block" />
         </div>
       </div>
 
@@ -16,6 +16,7 @@
         >
           <NuxtLink
             v-for="item in navigation"
+            :key="item.id"
             :to="item.href"
             class="text-zinc-600 hover:text-evening-sea-600 dark:text-zinc-200 dark:hover:text-evening-sea-400 px-3 py-2 transition"
             >{{ item.name }}</NuxtLink
@@ -73,11 +74,18 @@
   </div>
 </template>
 <script setup lang="ts">
+import LogoLightMode from "~/components/logos/LogoLightMode.vue";
+
 const route = useRoute();
 
 const navigation = [
-  { name: "Home", href: "/", current: route.name == "index" },
-  { name: "Projects", href: "/projects", current: route.name == "projects" },
-  { name: "About", href: "/about", current: route.name == "about" },
+  { id: 1, name: "Home", href: "/", current: route.name === "index" },
+  {
+    id: 2,
+    name: "Projects",
+    href: "/projects",
+    current: route.name === "projects",
+  },
+  { id: 3, name: "About", href: "/about", current: route.name === "about" },
 ];
 </script>

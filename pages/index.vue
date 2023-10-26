@@ -14,10 +14,3 @@
     </div>
   </PageContainer>
 </template>
-
-<script lang="ts" setup>
-interface PageData {
-  title: number;
-  sub_title: string;
-}
-</script>

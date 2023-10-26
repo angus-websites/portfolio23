@@ -45,7 +45,7 @@
 import { PropType } from "vue";
 import { Project } from "~/types/Project";
 
-const props = defineProps({
+defineProps({
   project: Object as PropType<Project>,
 });
 </script>

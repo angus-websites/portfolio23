@@ -8,7 +8,13 @@
 </template>
 <script setup lang="ts">
 defineProps({
-  title: String,
-  subtitle: String,
+  title: {
+    type: String,
+    default: "Title",
+  },
+  subtitle: {
+    type: String,
+    default: "Subtitle",
+  },
 });
 </script>
