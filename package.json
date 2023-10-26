@@ -25,7 +25,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint:js": "eslint --ext \".ts,.vue\" --ignore-path .gitignore .",
+    "lint:js": "eslint --ext '.ts,.vue' --ignore-path .gitignore .",
     "lint:prettier": "bunx prettier --check .",
     "lint": "bun run lint:js && bun run lint:prettier",
     "lintfix": "bunx prettier --write --list-different . && bun run lint:js --fix"
