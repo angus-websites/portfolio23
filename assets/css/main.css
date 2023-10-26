@@ -1,4 +1,4 @@
-@import './custom';
+@import "./custom";
 
 @tailwind base;
 @tailwind components;
@@ -6,7 +6,7 @@
 
 /* Global styles */
 @layer base {
-    * {
-        @apply transition-colors duration-200; /* Add any other transition or delay classes here */
-    }
+  * {
+    @apply transition-colors duration-200; /* Add any other transition or delay classes here */
+  }
 }
