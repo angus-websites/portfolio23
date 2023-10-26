@@ -25,17 +25,16 @@
 import { BriefcaseIcon } from '@heroicons/vue/24/solid'
 import {Employment} from "~/types/Employment";
 
+// Create some employment data based on the interface
+const employments: Employment[] = [
+  {
+    id: 1,
+    employer: 'Company 1',
+    job_title: 'Software Engineer',
+    start_date: '2020-01-01',
+    end_date: '2020-01-01',
+  },
+]
 
-const { $directus, $readItems } = useNuxtApp()
-
-
-const { data: employments, error } = await useAsyncData<{ data: Employment[] }>('getEmployment', () => {
-  return $directus.request(
-      $readItems('employments', {
-        sort: '-start_date',
-        fields: ['*.*']
-      })
-  )
-});
 
 </script>

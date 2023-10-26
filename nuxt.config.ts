@@ -1,9 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  runtimeConfig: { DIRECTUS_HOST: process.env.DIRECTUS_HOST},
-  modules: ['@nuxtjs/color-mode'],
+  modules: ['@nuxtjs/color-mode', '@nuxtjs/strapi'],
   css: ['~/assets/css/main.css'],
+  strapi: {
+    url: process.env.STRAPI_URL || 'http://localhost:1337',
+  },
   postcss: {
     plugins: {
       tailwindcss: {},

@@ -2,7 +2,7 @@
     <PageContainer>
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto max-w-2xl text-center">
-          <TitleAndSubtitle :title="page.title" :subtitle="page.sub_title" />
+          <TitleAndSubtitle title="Welcome to the portfolio" subtitle="A subtitle goes here" />
         </div>
       </div>
 
@@ -14,20 +14,12 @@
 
 <script lang="ts" setup>
 
-const { $directus, $readItems } = useNuxtApp()
-
 interface PageData {
   title: number;
   sub_title: string;  
 }
 
-// Ready the employments data
-const { data: page } = await useAsyncData<{ data: PageData}>('getPageDetails', () => {
-  return $directus.request(
-    $readItems('global', {
-      fields: ['title', 'sub_title']
-    })
-  )
-});
+
+
 
 </script>

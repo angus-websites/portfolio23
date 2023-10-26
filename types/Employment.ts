@@ -1,5 +1,5 @@
 // Project type
-export interface Employment {
+export type Employment = {
     id: number;
     employer: string;
     job_title: string;

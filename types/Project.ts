@@ -1,5 +1,5 @@
 // Project type
-export interface Project {
+export type Project =  {
     id: number;
     slug: string;
     title: string;

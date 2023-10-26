@@ -3,6 +3,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/color-mode": "^3.3.0",
+    "@nuxtjs/strapi": "^1.9.3",
     "autoprefixer": "^10.4.16",
     "nuxt": "^3.7.4",
     "postcss": "^8.4.31",
@@ -20,7 +21,6 @@
   },
   "type": "module",
   "dependencies": {
-    "@directus/sdk": "^12.0.1",
     "@heroicons/vue": "latest",
     "postcss-loader": "^7.3.3"
   }

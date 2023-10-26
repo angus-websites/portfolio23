@@ -1,7 +1,8 @@
 <template>
     <PageContainer>
-        <p>This is the about page</p>
-    </PageContainer>
+      <TitleAndSubtitle title="About" subtitle="The about page" />
+  </PageContainer>
 </template>
 
-  
+<script setup lang="ts">
+</script>
