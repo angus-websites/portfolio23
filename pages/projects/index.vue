@@ -12,25 +12,31 @@
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-20"
     >
       <ProjectCard
-        v-for="project in projects.data"
+        v-for="project in projects"
         :key="project.id"
         class="mx-auto sm:mx-0"
-        :project="project.attributes"
+        :project="project"
       />
     </div>
   </PageContainer>
 </template>
 <script lang="ts" setup>
 import type { Project } from "~/types/Project";
-const { find } = useStrapi();
 
-interface ProjectResponse {
-  data: Project[];
-}
+// Create a fake project list
+const projects: Project[] = [
+  {
+    id: 1,
+    title: "Project 4",
+    slug: "project-4",
+    short_description: "A fun drinking game to play with the family",
+  },
+  {
+    id: 2,
+    title: "Project 2",
+    slug: "project-2",
+    short_description: "A fun drinking game to play with the family",
+  },
+]
 
-const { data: projects, error } = await useAsyncData<{
-  data: ProjectResponse[];
-}>("strapiProjects", () => {
-  return find("projects");
-});
 </script>
