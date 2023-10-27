@@ -4,8 +4,8 @@
       <!-- Logo -->
       <div class="w-1/4 flex flex-row justify-start">
         <div>
-          <LogoLightMode class="h-8 dark:hidden" />
-          <LogoDarkMode class="h-8 hidden dark:block" />
+          <LogosLogoLightMode class="h-8 dark:hidden" />
+          <LogosLogoDarkMode class="h-8 hidden dark:block" />
         </div>
       </div>
 

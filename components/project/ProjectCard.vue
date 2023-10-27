@@ -29,7 +29,7 @@
       <div class="flex flex-row justify-start my-5">
         <div class="mr-2">
           <span
-            class="px-2 py-1 text-xs font-semibold rounded-full bg-zinc-300 dark:bg-evening-sea-500 dark:bg-opacity-40 text-evening-sea-900 dark:text-evening-sea-200"
+            class="px-2 py-1 text-xs rounded-full bg-mulberry-700 bg-opacity-90 dark:bg-mulberry-200 text-mulberry-50 dark:text-mulberry-800"
             >Technology</span
           >
         </div>

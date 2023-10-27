@@ -1,9 +1,11 @@
 <template>
   <PageContainer>
-    <TitleAndSubtitle
-      title="My Projects"
-      subtitle="Some of my recent work..."
-    />
+    <div class="text-center sm:text-left">
+      <TitleAndSubtitle
+        title="My Projects"
+        subtitle="Some of my recent work..."
+      />
+    </div>
     <p v-if="error">Error fetching projects</p>
     <div
       v-else

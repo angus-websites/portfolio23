@@ -8,9 +8,15 @@
         />
       </div>
     </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 mt-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-10 my-20">
       <EmploymentBlock />
+      <EducationBlock />
+    </div>
+
+    <div class="text-center my-28">
+      <h2 class="h2 text-lunar-800 dark:text-lunar-100">My skills</h2>
     </div>
   </PageContainer>
 </template>
+<script setup lang="ts">
+</script>
