@@ -9,8 +9,11 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 mt-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-10 mt-20">
       <EmploymentBlock />
+      <EducationBlock />
     </div>
   </PageContainer>
 </template>
+<script setup lang="ts">
+</script>

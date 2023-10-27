@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { BriefcaseIcon } from "@heroicons/vue/24/solid";
-import { Employment } from "~/types/Employment";
+import type { Employment } from "~/types/Employment";
 
 // Create some employment data based on the interface
 const employments: Employment[] = [
