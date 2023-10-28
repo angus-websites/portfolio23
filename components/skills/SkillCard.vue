@@ -6,7 +6,7 @@
   >
     <div class="flex-1 p-5">
 
-      <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col justify-center transition-opacity duration-200 ease-in-out' + (isHovered ? ' opacity-100' : ' opacity-90 dark:opacity-80')"
+      <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col justify-center transition-opacity duration-200 ease-in-out' + (isHovered ? ' opacity-100' : ' opacity-90 dark:opacity-90')"
       >
         <!-- Regular icon with conditional classes -->
         <img

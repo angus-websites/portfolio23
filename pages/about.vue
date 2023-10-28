@@ -8,7 +8,7 @@
         {{  section.title }}
       </template>
       <template #content>
-        <ul role="list" class="space-y-14">
+        <ul role="list" class="space-y-10">
           <li v-for="item in section.content">
             <TextSection :title="item.title" :content="item.content" />
           </li>
