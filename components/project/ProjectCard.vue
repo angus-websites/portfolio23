@@ -1,9 +1,9 @@
 <template>
   <NuxtLink
     to="#"
-    class="max-w-sm border dark:border-white dark:border-opacity-0 bg-zinc-100 rounded-lg shadow dark:bg-evening-sea-900 dark:bg-opacity-40"
+    class="max-w-sm bg-zinc-100 hover:bg-zinc-50 hover:dark:bg-opacity-80  rounded-lg shadow dark:bg-evening-sea-900 dark:bg-opacity-40"
   >
-    <div>
+    <div class="">
       <img
         class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-base-300"
         src="https://flowbite.com/docs/images/blog/image-1.jpg"

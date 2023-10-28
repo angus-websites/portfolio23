@@ -2,24 +2,17 @@
   <div class="grid grid-cols-1 gap-y-10">
     <div v-for="category in skillCategories" :key="category.id">
     <div class="grid grid-cols-4 gap-4">
-      <div
-          v-for="skill in category.skills"
-          :key="skill.id"
-          class="flex flex-col items-center"
-      >
-        <div class="w-12 h-12">
-          <Icon :name="skill.icon" />
-        </div>
-        <p class="text-sm text-lunar-800 dark:text-lunar-100">
-          {{ skill.name }}
-        </p>
-      </div>
+      <SkillCard
+        v-for="skill in category.skills"
+        :key="skill.id"
+        :skill="skill" />
     </div>
   </div>
   </div>
 </template>
 <script setup lang="ts">
 import { SkillCategory } from "~/types/SkillCategory";
+import SkillCard from "~/components/skills/SkillCard.vue";
 
 
 // Generate a list of my skills in different categories based on the interface
@@ -31,37 +24,32 @@ const skillCategories: SkillCategory[] = [
       {
         id: 1,
         name: "JavaScript",
-        icon: "javascript",
+        icon: "https://cdn.worldvectorlogo.com/logos/logo-javascript.svg",
       },
       {
         id: 2,
         name: "TypeScript",
-        icon: "typescript",
+        icon: "https://cdn.worldvectorlogo.com/logos/typescript.svg",
       },
       {
         id: 3,
         name: "HTML",
-        icon: "html",
+        icon: "https://cdn.worldvectorlogo.com/logos/html-1.svg",
       },
       {
         id: 4,
         name: "CSS",
-        icon: "css",
+        icon: "https://cdn.worldvectorlogo.com/logos/css-3.svg",
       },
       {
         id: 5,
         name: "PHP",
-        icon: "php",
+        icon: "https://cdn.worldvectorlogo.com/logos/php-1.svg",
       },
       {
         id: 6,
         name: "Python",
-        icon: "python",
-      },
-      {
-        id: 7,
-        name: "SQL",
-        icon: "sql",
+        icon: "https://cdn.worldvectorlogo.com/logos/python-5.svg",
       },
     ],
   },
@@ -72,42 +60,33 @@ const skillCategories: SkillCategory[] = [
       {
         id: 8,
         name: "Vue.js",
-        icon: "vue",
+        icon: "https://cdn.worldvectorlogo.com/logos/vue-9.svg",
       },
       {
         id: 9,
         name: "Nuxt.js",
-        icon: "nuxt",
+        icon: "https://cdn.worldvectorlogo.com/logos/nuxt-2.svg",
       },
       {
         id: 10,
         name: "React",
-        icon: "react",
-      },
-      {
-        id: 11,
-        name: "Next.js",
-        icon: "next",
+        icon: "https://cdn.worldvectorlogo.com/logos/react-2.svg",
       },
       {
         id: 12,
         name: "Tailwind CSS",
-        icon: "tailwind",
-      },
-      {
-        id: 13,
-        name: "Bootstrap",
-        icon: "bootstrap",
+        icon: "https://cdn.worldvectorlogo.com/logos/tailwind-css-2.svg",
       },
       {
         id: 14,
         name: "Laravel",
-        icon: "laravel",
+        icon: "https://cdn.worldvectorlogo.com/logos/laravel-3.svg",
+        iconDark: "/laravel-white.svg"
       },
       {
         id: 15,
         name: "Django",
-        icon: "django",
+        icon: "https://static-00.iconduck.com/assets.00/djangoproject-icon-512x512-qguhk178.png",
       },
     ],
   },
