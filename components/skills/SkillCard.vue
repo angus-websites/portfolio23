@@ -1,11 +1,13 @@
 <template>
   <div
-      class="rounded flex flex-col items-center transition-all duration-300 ease-in-out"
+      class="rounded flex flex-col items-center "
       @mouseover="isHovered = true"
       @mouseleave="isHovered = false"
   >
     <div class="flex-1 p-5">
-      <div class="w-16 h-16 flex flex-col justify-center">
+
+      <div :class="'w-14 h-14 flex flex-col justify-center transition-opacity duration-200 ease-in-out' + (isHovered ? ' opacity-100' : ' opacity-90 dark:opacity-80')"
+      >
         <!-- Regular icon with conditional classes -->
         <img
             :src="skill.icon"
@@ -22,7 +24,7 @@
       </div>
     </div>
     <div
-        :class="isHovered ? 'w-full p-1 opacity-100 transition-opacity duration-300 ease-in-out' : 'w-full p-1 opacity-0 transition-opacity duration-300 ease-in-out'"
+        :class="'w-full p-1 transition-opacity duration-200 ease-in-out' + (isHovered ? ' opacity-100' : ' opacity-0')"
     >
       <p class="text-sm text-lunar-800 dark:text-lunar-100">
         {{ skill.name }}
