@@ -4,7 +4,7 @@
   >
     {{ title }}
   </h1>
-  <p class="mt-6 text-lg leading-8 dark:text-evening-sea-100">{{ subtitle }}</p>
+  <p class="mt-4 text-lg leading-8 dark:text-evening-sea-100">{{ subtitle }}</p>
 </template>
 <script setup lang="ts">
 defineProps({

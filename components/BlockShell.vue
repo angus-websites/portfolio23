@@ -1,5 +1,5 @@
 <template>
-  <div class="p-5 border rounded-xl dark:border-white dark:border-opacity-0 bg-zinc-50 dark:bg-evening-sea-900 dark:bg-opacity-40">
+  <section class="p-5 rounded-xl bg-zinc-50 dark:bg-evening-sea-900/40">
 
     <!-- Top row -->
     <div class="flex flex-row items-center justify-start">
@@ -12,11 +12,11 @@
 
       <!-- Slot for the title -->
       <div>
-        <h3 class="text-lg text-evening-sea-900 dark:text-zinc-50 font-bold tracking-tight">
+        <h2 class="text-lg text-evening-sea-900 dark:text-zinc-50 font-bold tracking-tight">
           <slot name="title">
 
           </slot>
-        </h3>
+        </h2>
       </div>
     </div>
 
@@ -25,5 +25,5 @@
       <slot name="content">
       </slot>
     </div>
-  </div>
+  </section>
 </template>

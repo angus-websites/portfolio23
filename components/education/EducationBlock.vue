@@ -9,13 +9,14 @@
     </template>
 
     <template #content>
-      <div class="grid grid-cols-1 gap-y-8">
-        <EducationRow
-            v-for="edu in education"
-            :key="edu.id"
-            :education="edu"
-        />
-      </div>
+      <ul class="grid grid-cols-1 gap-y-8">
+        <li v-for="edu in education">
+          <EducationRow
+              :key="edu.id"
+              :education="edu"
+          />
+        </li>
+      </ul>
     </template>
   </BlockShell>
 </template>

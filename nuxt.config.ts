@@ -1,11 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/color-mode", "@nuxtjs/strapi"],
+  modules: ["@nuxtjs/color-mode"],
   css: ["~/assets/css/main.css"],
-  strapi: {
-    url: process.env.STRAPI_URL || "http://localhost:1337",
-  },
   postcss: {
     plugins: {
       tailwindcss: {},
