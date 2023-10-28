@@ -7,16 +7,17 @@
           <div class="w-full border-t border-gray-300 dark:border-evening-sea-700 dark:border-opacity-20" />
         </div>
         <div class="relative flex justify-center">
-          <span class="bg-[#EAEEF1] dark:bg-evening-sea-bg px-2 text-sm text-gray-500 dark:text-evening-sea-100">{{  category.name  }}</span>
+          <h3 class="bg-[#EAEEF1] dark:bg-evening-sea-bg px-2 text-sm text-gray-500 dark:text-evening-sea-100">{{  category.name  }}</h3>
         </div>
       </div>
 
-      <div class="grid grid-cols-4 gap-4">
-        <SkillCard
-          v-for="skill in category.skills"
-          :key="skill.id"
-          :skill="skill" />
-      </div>
+      <ul class="grid grid-cols-3 sm:grid-cols-4 gap-4">
+        <li v-for="skill in category.skills">
+          <SkillCard
+              :key="skill.id"
+              :skill="skill" />
+        </li>
+      </ul>
   </div>
   </div>
 </template>
