@@ -1,12 +1,22 @@
 <template>
   <div class="grid grid-cols-1 gap-y-10">
     <div v-for="category in skillCategories" :key="category.id">
-    <div class="grid grid-cols-4 gap-4">
-      <SkillCard
-        v-for="skill in category.skills"
-        :key="skill.id"
-        :skill="skill" />
-    </div>
+
+      <div class="relative mb-10">
+        <div class="absolute inset-0 flex items-center" aria-hidden="true">
+          <div class="w-full border-t border-gray-300 dark:border-evening-sea-700 dark:border-opacity-20" />
+        </div>
+        <div class="relative flex justify-center">
+          <span class="bg-[#EAEEF1] dark:bg-evening-sea-bg px-2 text-sm text-gray-500 dark:text-evening-sea-100">{{  category.name  }}</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-4 gap-4">
+        <SkillCard
+          v-for="skill in category.skills"
+          :key="skill.id"
+          :skill="skill" />
+      </div>
   </div>
   </div>
 </template>
