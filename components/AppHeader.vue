@@ -34,35 +34,32 @@
         </div>
       </div>
     </nav>
-
-    <!-- Mobile Menu -->
-    <div
-      id="mobile-menu"
-      class="md:hidden bg-gray-700 text-white p-4 space-y-2 hidden"
-    >
-      <a href="#" class="block">Home</a>
-      <a href="#" class="block">About</a>
-      <a href="#" class="block">Services</a>
-      <a href="#" class="block">Contact</a>
-      <button class="w-full py-2 px-4 bg-blue-500 hover:bg-blue-600 rounded-md">
-        Button
-      </button>
-    </div>
   </div>
 </template>
 <script setup lang="ts">
-import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 import AppMobileMenu from "~/components/AppMobileMenu.vue";
 const route = useRoute();
+import {HomeIcon, FolderIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
 
 const navigation = [
-  { id: 1, name: "Home", href: "/", current: route.name === "index" },
+  { id: 1,
+    name: "Home",
+    href: "/",
+    current: route.name === "index",
+    icon: HomeIcon,
+  },
   {
     id: 2,
     name: "Projects",
     href: "/projects",
     current: route.name === "projects",
+    icon: FolderIcon,
   },
-  { id: 3, name: "About", href: "/about", current: route.name === "about" },
+  { id: 3,
+    name: "About",
+    href: "/about",
+    current: route.name === "about",
+    icon: UserCircleIcon,
+  },
 ];
 </script>
