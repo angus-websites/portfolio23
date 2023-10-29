@@ -45,46 +45,36 @@
           leave-to-class="translate-y-1 opacity-0"
       >
         <PopoverPanel
-            class="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
+            v-slot="{ close }"
+            class="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white px-10 py-8 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
         >
-          <div class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5">
-            <div class="relative grid gap-8 bg-white p-7 lg:grid-cols-2">
-              <a
-                  v-for="item in solutions"
-                  :key="item.name"
-                  :href="item.href"
-                  class="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out hover:bg-gray-50 focus:outline-none focus-visible:ring focus-visible:ring-orange-500/50"
-              >
-                <div
-                    class="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12"
-                >
-                  <div v-html="item.icon"></div>
-                </div>
-                <div class="ml-4">
-                  <p class="text-sm font-medium text-gray-900">
-                    {{ item.name }}
-                  </p>
-                  <p class="text-sm text-gray-500">
-                    {{ item.description }}
-                  </p>
-                </div>
-              </a>
-            </div>
-            <div class="bg-gray-50 p-4">
-              <a
-                  href="##"
-                  class="flow-root rounded-md px-2 py-2 transition duration-150 ease-in-out hover:bg-gray-100 focus:outline-none focus-visible:ring focus-visible:ring-orange-500/50"
-              >
-                <span class="flex items-center">
-                  <span class="text-sm font-medium text-gray-900">
-                    Documentation
-                  </span>
-                </span>
-                <span class="block text-sm text-gray-500">
-                  Start integrating products and tools
-                </span>
-              </a>
-            </div>
+
+          <div class="flex flex-row-reverse items-center justify-between">
+            <PopoverButton aria-label="Close menu" class="-m-1 p-1">
+              <svg class="h-6 w-6 text-zinc-500 dark:text-zinc-400" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                    d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                />
+              </svg>
+            </PopoverButton>
+            <h2 class="text-sm font-medium text-zinc-600 dark:text-zinc-400">
+              Navigation
+            </h2>
+          </div>
+          <div class="relative grid gap-8 py-7 lg:grid-cols-2">
+            <NuxtLink
+                @click="close"
+                v-for="item in navItems"
+                :key="item.id"
+                :to="item.href"
+                class="text-zinc-600 hover:text-evening-sea-600 dark:text-zinc-200 dark:hover:text-evening-sea-400 px-3 py-2 transition"
+            >{{ item.name }}
+            </NuxtLink>
           </div>
         </PopoverPanel>
       </transition>
@@ -95,7 +85,13 @@
 <script setup>
 import { Popover, PopoverButton, PopoverPanel, PopoverOverlay } from '@headlessui/vue'
 import { ChevronDownIcon } from '@heroicons/vue/20/solid'
-
+import NuxtLink from "#app/components/nuxt-link.js";
+defineProps({
+  navItems: {
+    type: Array,
+    required: true,
+  },
+})
 const solutions = [
   {
     name: 'Insights',

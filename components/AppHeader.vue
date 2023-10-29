@@ -30,7 +30,7 @@
           <ButtonsDarkToggle />
         </div>
         <div class="md:hidden">
-          <AppMobileMenu />
+          <AppMobileMenu :nav-items="navigation" />
         </div>
       </div>
     </nav>
