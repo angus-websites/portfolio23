@@ -1,6 +1,6 @@
 <template>
   <button
-    class="p-2 rounded-full bg-zinc-200 dark:bg-evening-sea-900 text-evening-sea-800 dark:text-evening-sea-200"
+    class="p-2 rounded-full bg-evening-sea-400/20 dark:bg-evening-sea-900 text-evening-sea-800 dark:text-evening-sea-200"
     @click="toggleDarkMode"
   >
     <SunIcon class="h-6 w-6 hidden dark:block" />

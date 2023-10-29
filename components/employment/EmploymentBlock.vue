@@ -33,5 +33,19 @@ const employments: Employment[] = [
     start_date: "2020-01-01",
     end_date: "2020-01-01",
   },
+  {
+    id: 2,
+    employer: "Company 1",
+    job_title: "Software Engineer",
+    start_date: "2020-01-01",
+    end_date: "2020-01-01",
+  },
+  {
+    id: 3,
+    employer: "Company 1",
+    job_title: "Software Engineer",
+    start_date: "2020-01-01",
+    end_date: "2020-01-01",
+  },
 ];
 </script>
