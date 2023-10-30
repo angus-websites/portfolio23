@@ -46,14 +46,14 @@
       >
         <PopoverPanel
             v-slot="{ close }"
-            class="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-5 ring-1 ring-zinc-900/5 dark:bg-zinc-900 dark:ring-zinc-800"
+            class="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-5 ring-1 ring-zinc-900/5 dark:bg-evening-sea-bg-2 dark:ring-evening-sea-900/50"
         >
 
           <div class="flex flex-row-reverse items-center justify-between">
             <PopoverButton
                 aria-label="Close menu"
                 type="button"
-                class="inline-flex items-center  p-1 w-10 h-10 justify-center text-sm rounded-lg md:hidden bg-mulberry-200/40 hover:bg-mulberry-200/80 text-mulberry-700 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                class="inline-flex items-center  p-1 w-10 h-10 justify-center text-sm rounded-lg md:hidden bg-mulberry-200/40 dark:bg-mulberry-500/50 hover:bg-mulberry-200/80 dark:hover:bg-mulberry-800/80 text-mulberry-700 dark:text-mulberry-200 focus:outline-none focus:ring-2 focus:ring-mulberry-800/40 dark:focus:ring-mulberry-300/60   "
                 aria-controls="navbar-cta"
                 aria-expanded="false"
             >
@@ -65,23 +65,17 @@
 
           </div>
           <div class="py-4">
-            <div v-for="item in navItems" :key="item.id" class="group relative flex items-center gap-x-6 rounded-lg p-4 hover:bg-gray-50">
-              <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                <component :is="item.icon" class="h-6 w-6 text-gray-600 group-hover:text-indigo-600" aria-hidden="true" />
+            <div v-for="item in navItems" :key="item.id" class="group my-2 relative flex items-center gap-x-6 rounded-lg p-4 bg-lunar-50  hover:bg-lunar-100/60 dark:hover:bg-evening-sea-100/10 focus:ring-mulberry-800/40">
+              <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-inherit group-hover:bg-white dark:group-hover:bg-lunar-400 dark:bg-evening-sea-200/30">
+                <component :is="item.icon" class="h-6 w-6 text-evening-sea-800 group-hover:text-evening-sea-600 dark:group-hover:text-lunar-800 dark:text-evening-sea-200/70" aria-hidden="true" />
               </div>
               <div>
-                <a :href="item.href" class="font-semibold text-gray-900">
+                <a :href="item.href" class="font-semibold text-zinc-700 group-hover:text-lunar-900 dark:text-lunar-200 dark:group-hover:text-lunar-50">
                   {{ item.name }}
                   <span class="absolute inset-0" />
                 </a>
               </div>
             </div>
-          </div>
-          <div class="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-            <a v-for="item in callsToAction" :key="item.name" :href="item.href" class="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100">
-              <component :is="item.icon" class="h-5 w-5 flex-none text-gray-400" aria-hidden="true" />
-              {{ item.name }}
-            </a>
           </div>
         </PopoverPanel>
       </transition>

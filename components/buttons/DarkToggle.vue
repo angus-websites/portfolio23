@@ -13,6 +13,11 @@ import { SunIcon, MoonIcon } from "@heroicons/vue/24/solid";
 const { $colorMode } = useNuxtApp();
 
 const toggleDarkMode = () => {
-  $colorMode.preference = $colorMode.preference === "dark" ? "light" : "dark";
+  if ($colorMode.preference === "dark" || ($colorMode.preference === "system" && $colorMode.value === "dark")) {
+    $colorMode.preference = "light";
+  } else {
+    $colorMode.preference = "dark";
+  }
 };
+
 </script>

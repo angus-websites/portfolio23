@@ -1,6 +1,8 @@
 <template>
   <PageContainer>
-    <TitleAndSubtitle title="About" subtitle="The about page" />
+    <div class="text-center sm:text-left">
+      <TitleAndSubtitle title="About" subtitle="The about page" />
+    </div>
 
     <!-- Setup -->
     <AboutShell v-for="section in allSections" class="my-20">
