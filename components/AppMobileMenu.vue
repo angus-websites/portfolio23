@@ -65,17 +65,17 @@
 
           </div>
           <div class="py-4">
-            <div v-for="item in navItems" :key="item.id" class="group my-2 relative flex items-center gap-x-6 rounded-lg p-4 bg-lunar-50  hover:bg-lunar-100/60 dark:hover:bg-evening-sea-100/10 focus:ring-mulberry-800/40">
-              <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-inherit group-hover:bg-white dark:group-hover:bg-lunar-400 dark:bg-evening-sea-200/30">
-                <component :is="item.icon" class="h-6 w-6 text-evening-sea-800 group-hover:text-evening-sea-600 dark:group-hover:text-lunar-800 dark:text-evening-sea-200/70" aria-hidden="true" />
+            <NuxtLink v-for="item in navItems" @click="close" :to="item.href" :key="item.id" class="group my-2 relative flex items-center gap-x-6 rounded-lg p-4 bg-lunar-50 dark:bg-evening-sea-100/10 dark:hover:bg-evening-sea-100/20  hover:bg-lunar-100/60  focus:ring-mulberry-800/40">
+              <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-inherit dark:bg-inherit group-hover:bg-white dark:group-hover:bg-evening-sea-100 ">
+                <component :is="item.icon" class="h-6 w-6 text-evening-sea-800 group-hover:text-evening-sea-600 dark:group-hover:text-evening-sea-900 dark:text-evening-sea-200/70" aria-hidden="true" />
               </div>
               <div>
-                <a :href="item.href" class="font-semibold text-zinc-700 group-hover:text-lunar-900 dark:text-lunar-200 dark:group-hover:text-lunar-50">
+                <p :href="item.href" class="font-semibold text-zinc-700 group-hover:text-lunar-900 dark:text-lunar-200 dark:group-hover:text-lunar-100">
                   {{ item.name }}
                   <span class="absolute inset-0" />
-                </a>
+                </p>
               </div>
-            </div>
+            </NuxtLink>
           </div>
         </PopoverPanel>
       </transition>
