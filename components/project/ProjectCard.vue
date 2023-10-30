@@ -1,45 +1,50 @@
 <template>
-  <NuxtLink
-    to="#"
-    class="max-w-sm bg-zinc-100 hover:bg-zinc-50 hover:dark:bg-opacity-80  rounded-lg shadow dark:bg-evening-sea-900 dark:bg-opacity-40"
+  <div class="max-w-sm bg-zinc-100 hover:bg-zinc-50 hover:dark:bg-opacity-80  rounded-lg shadow dark:bg-evening-sea-900 dark:bg-opacity-40"
   >
-    <div class="">
-      <img
-        class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-base-300"
-        src="https://flowbite.com/docs/images/blog/image-1.jpg"
-        alt=""
-      />
-    </div>
-    <div class="p-5">
-      <!-- Top row -->
-      <div class="flex flex-row justify-between">
-        <div>
-          <h3
-            class="text-xl text-evening-sea-900 dark:text-zinc-50 font-semibold tracking-tight"
-          >
-            {{ project.title }}
-          </h3>
-        </div>
-        <div>
-          <p class="text-evening-sea-700 dark:text-evening-sea-200">2023</p>
-        </div>
+    <NuxtLink
+        to="#"
+    >
+      <div class="">
+        <img
+            width="100"
+            height="100"
+            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-base-300"
+            src="https://flowbite.com/docs/images/blog/image-1.jpg"
+            alt=""
+        />
       </div>
+      <div class="p-5">
+        <!-- Top row -->
+        <div class="flex flex-row justify-between">
+          <div>
+            <h3
+                class="text-xl text-evening-sea-900 dark:text-zinc-50 font-semibold tracking-tight"
+            >
+              {{ project.title }}
+            </h3>
+          </div>
+          <div>
+            <p class="text-evening-sea-700 dark:text-evening-sea-200">2023</p>
+          </div>
+        </div>
 
-      <!-- Tags -->
-      <div class="flex flex-row justify-start my-5">
-        <div class="mr-2">
+        <!-- Tags -->
+        <div class="flex flex-row justify-start my-5">
+          <div class="mr-2">
           <span
-            class="px-2 py-1 text-xs rounded-full bg-mulberry-700 bg-opacity-90 dark:bg-mulberry-200 text-mulberry-50 dark:text-mulberry-800"
-            >Technology</span
+              class="px-2 py-1 text-xs rounded-full bg-mulberry-700 bg-opacity-90 dark:bg-mulberry-200 text-mulberry-50 dark:text-mulberry-800"
+          >Technology</span
           >
+          </div>
         </div>
-      </div>
 
-      <p class="mt-5 text-sm text-zinc-700 dark:text-zinc-100 opacity-95">
-        A fun drinking game to play with the family
-      </p>
-    </div>
-  </NuxtLink>
+        <p class="mt-5 text-sm text-zinc-700 dark:text-zinc-100 opacity-95">
+          A fun drinking game to play with the family
+        </p>
+      </div>
+    </NuxtLink>
+
+  </div>
 </template>
 <script setup lang="ts">
 import { PropType } from "vue";

@@ -32,7 +32,7 @@
           leave-active-class="transition duration-150 ease-in"
           leave-from-class="translate-y-0 opacity-100"
           leave-to-class="translate-y-1 opacity-0">
-        <PopoverOverlay class="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/80" />
+        <PopoverOverlay class="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/50" />
 
       </transition>
 
@@ -65,12 +65,12 @@
 
           </div>
           <div class="py-4">
-            <NuxtLink v-for="item in navItems" @click="close" :to="item.href" :key="item.id" class="group my-2 relative flex items-center gap-x-6 rounded-lg p-4 bg-lunar-50 dark:bg-evening-sea-100/10 dark:hover:bg-evening-sea-100/20  hover:bg-lunar-100/60  focus:ring-mulberry-800/40">
+            <NuxtLink v-for="item in navItems" @click="close" :to="item.href" :key="item.id" class="group my-2 relative flex items-center gap-x-6 rounded-lg p-4 bg-lunar-50 dark:bg-evening-sea-100/10 dark:hover:bg-evening-sea-100/20  hover:bg-lunar-100/60 ">
               <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-inherit dark:bg-inherit group-hover:bg-white dark:group-hover:bg-evening-sea-100 ">
                 <component :is="item.icon" class="h-6 w-6 text-evening-sea-800 group-hover:text-evening-sea-600 dark:group-hover:text-evening-sea-900 dark:text-evening-sea-200/70" aria-hidden="true" />
               </div>
               <div>
-                <p :href="item.href" class="font-semibold text-zinc-700 group-hover:text-lunar-900 dark:text-lunar-200 dark:group-hover:text-lunar-100">
+                <p class="font-semibold text-zinc-700 group-hover:text-lunar-900 dark:text-lunar-200 dark:group-hover:text-lunar-100">
                   {{ item.name }}
                   <span class="absolute inset-0" />
                 </p>
