@@ -6,7 +6,7 @@
 
 @layer base {
   * {
-    @apply transition-colors duration-200; /* Add any other transition or delay classes here */
+    @apply transition-colors; /* Add any other transition or delay classes here */
   }
 
   .h1 {

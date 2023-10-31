@@ -1,6 +1,6 @@
 <template>
-  <div class="grid grid-cols-1 gap-y-10">
-    <div v-for="category in skillCategories" :key="category.id">
+  <ul class="grid grid-cols-1 gap-y-10">
+    <li v-for="category in skillCategories" :key="category.id">
 
       <div class="relative mb-10">
         <div class="absolute inset-0 flex items-center" aria-hidden="true">
@@ -18,8 +18,8 @@
               :skill="skill" />
         </li>
       </ul>
-  </div>
-  </div>
+    </li>
+  </ul>
 </template>
 <script setup lang="ts">
 import { SkillCategory } from "~/types/SkillCategory";

@@ -7,21 +7,28 @@
       />
     </div>
     <p v-if="error">Error fetching projects</p>
-    <div
+    <ul
       v-else
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-20"
     >
-      <ProjectCard
-        v-for="project in projects"
-        :key="project.id"
-        class="mx-auto sm:mx-0"
-        :project="project"
-      />
-    </div>
+      <li v-for="project in projects" class="mx-auto sm:mx-0">
+          <ProjectCard
+              :key="project.id"
+              :project="project"
+               />
+      </li>
+    </ul>
   </PageContainer>
 </template>
 <script lang="ts" setup>
 import type { Project } from "~/types/Project";
+
+useHead({
+  title: 'Projects - Angus',
+  meta: [
+    { name: 'description', content: 'Portfolio description' }
+  ]
+})
 
 // Create a fake project list
 const projects: Project[] = [

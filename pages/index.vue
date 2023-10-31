@@ -21,4 +21,11 @@
   </PageContainer>
 </template>
 <script setup lang="ts">
+useHead({
+  title: 'Home - Angus',
+  meta: [
+    { name: 'description', content: 'Portfolio description' }
+  ]
+})
+
 </script>

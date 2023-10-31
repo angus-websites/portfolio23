@@ -1,6 +1,8 @@
 <template>
   <PageContainer>
-    <TitleAndSubtitle title="About" subtitle="The about page" />
+    <div class="text-center sm:text-left">
+      <TitleAndSubtitle title="About" subtitle="The about page" />
+    </div>
 
     <!-- Setup -->
     <AboutShell v-for="section in allSections" class="my-20">
@@ -25,6 +27,13 @@
 </template>
 
 <script setup lang="ts">
+
+useHead({
+  title: 'About - Angus',
+  meta: [
+    { name: 'description', content: 'About description' }
+  ]
+})
 
 // Generate some dummy setup data
 import TextSection from "~/components/TextSection.vue";

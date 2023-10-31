@@ -1,6 +1,6 @@
 <template>
   <button
-    class="p-2 rounded-full bg-zinc-200 dark:bg-evening-sea-900 text-evening-sea-800 dark:text-evening-sea-200"
+    class="p-2 rounded-full bg-evening-sea-400/20 dark:bg-evening-sea-900 text-evening-sea-800 dark:text-evening-sea-200"
     @click="toggleDarkMode"
   >
     <SunIcon class="h-6 w-6 hidden dark:block" />
@@ -13,6 +13,11 @@ import { SunIcon, MoonIcon } from "@heroicons/vue/24/solid";
 const { $colorMode } = useNuxtApp();
 
 const toggleDarkMode = () => {
-  $colorMode.preference = $colorMode.preference === "dark" ? "light" : "dark";
+  if ($colorMode.preference === "dark" || ($colorMode.preference === "system" && $colorMode.value === "dark")) {
+    $colorMode.preference = "light";
+  } else {
+    $colorMode.preference = "dark";
+  }
 };
+
 </script>
