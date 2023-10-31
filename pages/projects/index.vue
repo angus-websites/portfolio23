@@ -23,6 +23,13 @@
 <script lang="ts" setup>
 import type { Project } from "~/types/Project";
 
+useHead({
+  title: 'Projects - Angus',
+  meta: [
+    { name: 'description', content: 'Portfolio description' }
+  ]
+})
+
 // Create a fake project list
 const projects: Project[] = [
   {

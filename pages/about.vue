@@ -28,6 +28,13 @@
 
 <script setup lang="ts">
 
+useHead({
+  title: 'About - Angus',
+  meta: [
+    { name: 'description', content: 'About description' }
+  ]
+})
+
 // Generate some dummy setup data
 import TextSection from "~/components/TextSection.vue";
 

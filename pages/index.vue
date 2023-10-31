@@ -22,7 +22,7 @@
 </template>
 <script setup lang="ts">
 useHead({
-  title: 'Home - Portfolio',
+  title: 'Home - Angus',
   meta: [
     { name: 'description', content: 'Portfolio description' }
   ]
