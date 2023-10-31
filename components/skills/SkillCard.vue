@@ -17,8 +17,6 @@
         <!-- Dark icon (only if provided) -->
         <img
             v-if="skill.iconDark"
-            width="32"
-            height="32"
             :src="skill.iconDark"
             :alt="'Dark icon for '+skill.name"
             class="hidden dark:inline-block"
