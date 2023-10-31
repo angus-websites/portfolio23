@@ -3,12 +3,15 @@
     class="bg-white border rounded-lg shadow m-4 dark:bg-opacity-5 dark:border-opacity-0 dark:border-evening-sea-50"
   >
     <div
-      class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between"
+      class="w-full mx-auto max-w-screen-xl p-4 flex flex-wrap items-center justify-between"
     >
-      <span
-        class="text-sm text-evening-sea-900 sm:text-center dark:text-evening-sea-200"
+      <div>
+        <span
+            class="text-sm text-evening-sea-900 sm:text-center dark:text-evening-sea-200"
         >© {{ new Date().getFullYear() }} Angus Goody
-      </span>
+        </span>
+      </div>
+
       <div>
         <div class="grid grid-flow-col gap-4">
           <a class="text-lunar-800/90 hover:text-evening-sea-800 dark:text-lunar-200 dark:hover:text-evening-sea-100" href="https://github.com/angusgoody" target="_blank">
@@ -21,3 +24,5 @@
     </div>
   </footer>
 </template>
+<script setup lang="ts">
+</script>
