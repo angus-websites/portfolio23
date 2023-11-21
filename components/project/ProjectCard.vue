@@ -2,7 +2,7 @@
   <div class="max-w-sm bg-zinc-100 hover:bg-zinc-50 hover:dark:bg-opacity-80  rounded-lg shadow dark:bg-evening-sea-900 dark:bg-opacity-40"
   >
     <NuxtLink
-        to="#"
+        :to="`/projects/${project.slug}`"
     >
       <div class="">
         <img
