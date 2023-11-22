@@ -2,8 +2,7 @@
 <template>
   <PageContainer>
     <div v-if="project">
-      <h1>{{ project.name }}</h1>
-      <p>{{ project.description }}</p>
+      <ProjectShow :project="project" />
     </div>
     <p v-else>Error fetching project</p>
   </PageContainer>
@@ -20,6 +19,13 @@ const project = ref({
   name: 'Project 1',
   slug: 'project-1',
   description: 'A fun drinking game to play with the family',
+})
+
+useHead({
+  title: project.value.name,
+  meta: [
+    { name: 'description', content: 'Project description - Angus' }
+  ]
 })
 
 </script>
