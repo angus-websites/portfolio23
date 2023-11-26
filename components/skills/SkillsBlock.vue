@@ -1,4 +1,6 @@
 <template>
+
+  {{ skillCategoriesTwo }}
   <ul class="grid grid-cols-1 gap-y-10">
     <li v-for="category in skillCategories" :key="category.id">
 
@@ -24,6 +26,13 @@
 <script setup lang="ts">
 import { SkillCategory } from "~/types/SkillCategory";
 import SkillCard from "~/components/skills/SkillCard.vue";
+import { useRuntimeConfig } from '#app';
+
+const config = useRuntimeConfig();
+const apiBaseUrl = config.public.apiBaseUrl;
+
+// Fetch the skills from the API
+const { data: skillCategoriesTwo } = useFetch<SkillCategory[]>(`${apiBaseUrl}/skill-categories`)
 
 
 // Generate a list of my skills in different categories based on the interface
