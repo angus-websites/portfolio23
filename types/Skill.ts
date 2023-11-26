@@ -3,6 +3,4 @@ export type Skill = {
   name: string;
   icon: string;
   iconDark?: string;
-  textColour?: string;
-  textColourDark?: string;
 };
