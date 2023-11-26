@@ -10,14 +10,14 @@
       >
         <!-- Regular icon with conditional classes -->
         <img
-            :src="getIconUrl(skill.icon.sizes['thumbnail']['url'])"
+            :src="getIconUrl(skill.icon.url)"
             :alt="skill.icon.alt"
             :class="skill.icon_dark_mode ? 'dark:hidden' : ''"
         />
         <!-- Dark icon (only if provided) -->
         <img
             v-if="skill.icon_dark_mode"
-            :src="getIconUrl(skill.icon_dark_mode.sizes['thumbnail']['url'])"
+            :src="getIconUrl(skill.icon_dark_mode.url)"
             :alt="skill.icon_dark_mode.alt"
             class="hidden dark:inline-block"
         />
