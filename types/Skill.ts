@@ -2,5 +2,5 @@ export type Skill = {
   id: number;
   name: string;
   icon: string;
-  iconDark?: string;
+  icon_dark_mode?: string;
 };

@@ -4,6 +4,7 @@
       @mouseover="isHovered = true"
       @mouseleave="isHovered = false"
   >
+    {{ skill }}
     <div class="flex-1 p-5">
 
       <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col justify-center transition-opacity duration-200 ease-in-out' + (isHovered ? ' opacity-100' : ' opacity-90 dark:opacity-90')"
@@ -12,12 +13,12 @@
         <img
             :src="skill.icon"
             :alt="'Icon for '+skill.name"
-            :class="skill.iconDark ? 'dark:hidden' : ''"
+            :class="skill.icon_dark_mode ? 'dark:hidden' : ''"
         />
         <!-- Dark icon (only if provided) -->
         <img
-            v-if="skill.iconDark"
-            :src="skill.iconDark"
+            v-if="skill.icon_dark_mode"
+            :src="skill.icon_dark_mode"
             :alt="'Dark icon for '+skill.name"
             class="hidden dark:inline-block"
         />

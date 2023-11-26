@@ -74,12 +74,12 @@
                   <img
                       :src="skill.icon"
                       :alt="'Icon for '+skill.name"
-                      :class="skill.iconDark ? 'dark:hidden' : ''"
+                      :class="skill.icon_dark_mode ? 'dark:hidden' : ''"
                   />
                   <!-- Dark icon (only if provided) -->
                   <img
-                      v-if="skill.iconDark"
-                      :src="skill.iconDark"
+                      v-if="skill.icon_dark_mode"
+                      :src="skill.icon_dark_mode"
                       :alt="'Dark icon for '+skill.name"
                       class="hidden dark:inline-block"
                   />
