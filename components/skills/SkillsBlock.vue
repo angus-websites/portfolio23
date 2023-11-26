@@ -30,6 +30,6 @@ import { useApiData } from '~/composables/useApiData';
 const { fetchData } = useApiData();
 
 // Fetch the skill categories from the API
-const { data: categories} = fetchData<SkillCategory>('/skill-categories');
+const { data: categories} = fetchData<SkillCategory[]>('/skill-categories');
 
 </script>

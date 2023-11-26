@@ -18,7 +18,8 @@ export function useApiData<T = any>() {
      * Fetch data from the API
      */
     function fetchData<T = any>(endpoint: string) {
-        const { data, error, pending } = useFetch<T>(getFullUrl(endpoint), {
+        const url = `${apiBaseUrl}/api${endpoint}`
+        const { data, error, pending } = useFetch<T>(url, {
             transform: (response: any) => response.docs ? response.docs : []
         });
 
