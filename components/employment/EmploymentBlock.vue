@@ -9,13 +9,14 @@
     </template>
 
     <template #content>
-      <ul class="grid grid-cols-1 gap-y-8">
+      <ul v-if="employments" class="grid grid-cols-1 gap-y-8">
         <li v-for="employment in employments">
           <EmploymentRow
               :key="employment.id"
               :employment="employment" />
         </li>
       </ul>
+      <LoadingAnimation v-else />
     </template>
   </BlockShell>
 </template>
@@ -24,28 +25,12 @@
 import { BriefcaseIcon } from "@heroicons/vue/24/solid";
 import type { Employment } from "~/types/Employment";
 
-// Create some employment data based on the interface
-const employments: Employment[] = [
-  {
-    id: 1,
-    employer: "Company 1",
-    job_title: "Software Engineer",
-    start_date: "2020-01-01",
-    end_date: "2020-01-01",
-  },
-  {
-    id: 2,
-    employer: "Company 1",
-    job_title: "Software Engineer",
-    start_date: "2020-01-01",
-    end_date: "2020-01-01",
-  },
-  {
-    id: 3,
-    employer: "Company 1",
-    job_title: "Software Engineer",
-    start_date: "2020-01-01",
-    end_date: "2020-01-01",
-  },
-];
+import { useApiData } from '~/composables/useApiData';
+import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
+const { fetchData } = useApiData();
+
+// Fetch the skill categories from the API
+const { data: employments} = fetchData<Employment[]>('/employment');
+
+
 </script>

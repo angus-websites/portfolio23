@@ -4,12 +4,12 @@
       <!-- Logo -->
       <div class="">
         <div class="rounded-full w-10 h-10 border relative overflow-hidden">
-          <img
+          <img v-if="employment.icon"
             width="100"
             height="100"
             class="w-full h-full object-cover"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt=""
+            :src="getFullUrl(employment.icon.url)"
+            :alt="employment.icon.alt"
           />
         </div>
       </div>
@@ -27,7 +27,7 @@
           </div>
           <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
             {{ convertDateToYear(employment.start_date) }} -
-            {{ convertDateToYear(employment.end_date, true) }}
+            <span v-if="employment.end_date">{{ convertDateToYear(employment.end_date, true) }}</span>
           </div>
         </div>
       </div>
@@ -37,10 +37,16 @@
 <script setup lang="ts">
 import { PropType } from "vue";
 import { Employment } from "~/types/Employment";
+import {useApiData} from "~/composables/useApiData";
 
 defineProps({
-  employment: Object as PropType<Employment>,
+  employment: {
+    type: Object as PropType<Employment>,
+    required: true,
+  }
 });
+
+const {getFullUrl} = useApiData();
 
 // Function to convert date to year only
 function convertDateToYear(date: string, handleNull = false) {
