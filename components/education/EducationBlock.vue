@@ -29,7 +29,7 @@ import type { Education } from "~/types/Education";
 const education: Education[] = [
   {
     id: 1,
-    institution: "The Example University",
+    school: "The Example University",
     level: "BSC Computer Science",
     grade: "2:1",
     start_date: "2020-01-01",

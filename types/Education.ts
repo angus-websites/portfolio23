@@ -1,7 +1,7 @@
 // Project type
 export type Education = {
   id: number;
-  institution: string;
+  school: string;
   level: string;
   grade?: string;
   start_date: string;

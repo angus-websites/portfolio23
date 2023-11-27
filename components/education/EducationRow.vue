@@ -19,7 +19,7 @@
         <div
           class="text-lg text-evening-sea-900 dark:text-zinc-50 font-semibold tracking-tight"
         >
-          {{ education.institution }}
+          {{ education.school }}
         </div>
         <div class="flex flex-wrap justify-between">
           <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
@@ -28,7 +28,7 @@
           </div>
           <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
             {{ convertDateToYear(education.start_date) }} -
-            {{ convertDateToYear(education.end_date, true) }}
+            <span v-if="education.end_date">{{ convertDateToYear(education.end_date, true) }}</span>
           </div>
         </div>
       </div>
@@ -40,7 +40,10 @@ import { PropType } from "vue";
 import type { Education } from "~/types/Education";
 
 defineProps({
-  education: Object as PropType<Education>,
+  education: {
+    type: Object as PropType<Education>,
+    required: true,
+  }
 });
 
 // Function to convert date to year only
