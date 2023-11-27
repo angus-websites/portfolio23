@@ -9,7 +9,7 @@
     </template>
 
     <template #content>
-      <ul class="grid grid-cols-1 gap-y-8">
+      <ul v-if="education" class="grid grid-cols-1 gap-y-8">
         <li v-for="edu in education">
           <EducationRow
               :key="edu.id"
@@ -17,6 +17,7 @@
           />
         </li>
       </ul>
+      <LoadingAnimation v-else />
     </template>
   </BlockShell>
 </template>
@@ -25,15 +26,11 @@
 import { AcademicCapIcon } from "@heroicons/vue/24/solid";
 import type { Education } from "~/types/Education";
 
-// Create some employment data based on the interface
-const education: Education[] = [
-  {
-    id: 1,
-    school: "The Example University",
-    level: "BSC Computer Science",
-    grade: "2:1",
-    start_date: "2020-01-01",
-    end_date: "2020-01-01",
-  },
-];
+import { useApiData } from '~/composables/useApiData';
+import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
+const { fetchData } = useApiData();
+
+// Fetch the skill categories from the API
+const { data: education} = fetchData<Education[]>('/education');
+
 </script>

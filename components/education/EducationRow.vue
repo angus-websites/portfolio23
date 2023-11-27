@@ -4,12 +4,12 @@
       <!-- Logo -->
       <div class="">
         <div class="rounded-full w-10 h-10 border relative overflow-hidden">
-          <img
+          <img v-if="education.icon"
             class="w-full h-full object-cover"
             width="100"
             height="100"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt=""
+            :src="getFullUrl(education.icon.url)"
+            :alt="education.icon.alt"
           />
         </div>
       </div>
@@ -38,6 +38,7 @@
 <script setup lang="ts">
 import { PropType } from "vue";
 import type { Education } from "~/types/Education";
+import {useApiData} from "~/composables/useApiData";
 
 defineProps({
   education: {
@@ -45,6 +46,8 @@ defineProps({
     required: true,
   }
 });
+
+const {getFullUrl} = useApiData();
 
 // Function to convert date to year only
 function convertDateToYear(date: string, handleNull = false) {
