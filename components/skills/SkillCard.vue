@@ -10,15 +10,15 @@
       >
         <!-- Regular icon with conditional classes -->
         <img
-            :src="skill.icon"
-            :alt="'Icon for '+skill.name"
-            :class="skill.iconDark ? 'dark:hidden' : ''"
+            :src="getIconUrl(skill.icon.url)"
+            :alt="skill.icon.alt"
+            :class="skill.icon_dark_mode ? 'dark:hidden' : ''"
         />
         <!-- Dark icon (only if provided) -->
         <img
-            v-if="skill.iconDark"
-            :src="skill.iconDark"
-            :alt="'Dark icon for '+skill.name"
+            v-if="skill.icon_dark_mode"
+            :src="getIconUrl(skill.icon_dark_mode.url)"
+            :alt="skill.icon_dark_mode.alt"
             class="hidden dark:inline-block"
         />
       </div>
@@ -37,10 +37,24 @@
 import { ref } from "vue";
 import { PropType } from "vue";
 import { Skill } from "~/types/Skill";
+import { useApiData } from '~/composables/useApiData';
 
 defineProps({
-  skill: Object as PropType<Skill>,
+  skill: {
+    type: Object as PropType<Skill>,
+    required: true,
+  }
 });
+
+const {getFullUrl} = useApiData();
+
+const getIconUrl = (icon: string) => {
+  return getFullUrl(icon);
+}
+
+
+
+
 
 const isHovered = ref(false);
 </script>

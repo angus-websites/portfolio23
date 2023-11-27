@@ -1,8 +1,8 @@
+import { Image } from "./Image";
+
 export type Skill = {
   id: number;
   name: string;
-  icon: string;
-  iconDark?: string;
-  textColour?: string;
-  textColourDark?: string;
+  icon: Image;
+  icon_dark_mode?: Image;
 };

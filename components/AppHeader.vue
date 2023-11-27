@@ -19,7 +19,11 @@
 
                 :key="item.id"
                 :to="item.href"
-                class="text-zinc-600 hover:text-evening-sea-600 dark:text-zinc-200 dark:hover:text-evening-sea-400 px-3 py-2 transition"
+                :class="[
+                  item.current ? 'text-evening-sea-600 dark:text-evening-sea-400' : 'text-zinc-600 dark:text-zinc-200 dark:hover:text-lunar-300 hover:text-lunar-600',
+                  'px-3 py-2 transition'
+                ]"
+
             >
               {{ item.name }}</NuxtLink
             >
@@ -43,26 +47,29 @@
 import AppMobileMenu from "~/components/AppMobileMenu.vue";
 const route = useRoute();
 import {HomeIcon, FolderIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
+import { computed } from 'vue';
 
-const navigation = [
-  { id: 1,
+const navigation = computed(() => [
+  {
+    id: 1,
     name: "Home",
     href: "/",
-    current: route.name === "index",
+    current: route.name === 'index',
     icon: HomeIcon,
   },
   {
     id: 2,
     name: "Projects",
     href: "/projects",
-    current: route.name === "projects",
+    current: route.name === 'projects',
     icon: FolderIcon,
   },
-  { id: 3,
+  {
+    id: 3,
     name: "About",
     href: "/about",
-    current: route.name === "about",
+    current: route.name === 'about',
     icon: UserCircleIcon,
   },
-];
+]);
 </script>

@@ -65,12 +65,34 @@
 
           </div>
           <div class="py-4">
-            <NuxtLink v-for="item in navItems" @click="close" :to="item.href" :key="item.id" class="group my-2 relative flex items-center gap-x-6 rounded-lg p-4 bg-lunar-50 dark:bg-evening-sea-100/10 dark:hover:bg-evening-sea-100/20  hover:bg-lunar-100/80 focus:outline-none focus:ring-2 focus:ring-lunar-800/50 dark:focus:ring-zinc-100/50">
-              <div class="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-inherit dark:bg-inherit group-hover:bg-white dark:group-hover:bg-evening-sea-100 ">
-                <component :is="item.icon" class="h-6 w-6 text-evening-sea-800 group-hover:text-evening-sea-600 dark:group-hover:text-evening-sea-900 dark:text-evening-sea-200/70" aria-hidden="true" />
+            <NuxtLink v-for="item in navItems"
+                      @click="close"
+                      :to="item.href"
+                      :key="item.id"
+                      :class="[
+                        item.current ? 'bg-evening-sea-600 dark:bg-evening-sea-400/60 focus:ring-evening-sea-500/50' : 'bg-lunar-100 dark:bg-evening-sea-100/10 dark:hover:bg-evening-sea-100/20  hover:bg-lunar-200/80 focus:ring-lunar-800/50 dark:focus:ring-zinc-100/50',
+                        'group my-2 relative flex items-center gap-x-6 rounded-lg p-4  focus:outline-none focus:ring-2 '
+                      ]">
+              <div :class="[
+                        item.current ? '' : 'dark:bg-inherit dark:group-hover:bg-white/70',
+                        'mt-1 flex h-11 w-11 flex-none bg-white items-center justify-center rounded-lg'
+                      ]"
+              >
+                <component
+                    :is="item.icon"
+                    :class="[
+                        item.current ? 'dark:text-evening-sea-700' : 'group-hover:text-evening-sea-600 dark:group-hover:text-evening-sea-800 ',
+                        'h-6 w-6 text-evening-sea-800 dark:text-evening-sea-200/70'
+                     ]"
+                    aria-hidden="true" />
               </div>
               <div>
-                <p class="font-semibold text-zinc-700 group-hover:text-lunar-900 dark:text-lunar-200 dark:group-hover:text-lunar-100">
+                <p
+                   :class="[
+                        item.current ? 'text-white' : 'text-zinc-700 dark:text-lunar-200  group-hover:text-lunar-900 dark:group-hover:text-lunar-100',
+                        'font-semibold '
+                      ]"
+                >
                   {{ item.name }}
                   <span class="absolute inset-0" />
                 </p>
@@ -94,10 +116,4 @@ defineProps({
   },
 })
 
-const callsToAction = [
-
-
-  { name: 'Watch demo', href: '#', icon: PlayCircleIcon },
-  { name: 'Contact sales', href: '#', icon: PhoneIcon },
-]
 </script>
