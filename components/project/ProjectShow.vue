@@ -1,7 +1,9 @@
 
 <template>
   <div class="">
-    <div class="mx-auto px-4 py-16 sm:px-6  lg:max-w-7xl lg:px-8">
+    <div class="mx-auto px-4 pb-16 sm:px-6  lg:max-w-7xl lg:px-8">
+      <!-- Breadcrumb -->
+      <ProjectBreadcrumb  class="my-5" />
       <!-- Product -->
       <div class="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
         <!-- Product image -->
@@ -16,7 +18,7 @@
                   <span class="absolute inset-0 overflow-hidden rounded-md">
                   <img :src="image.src" alt="" class="h-full w-full object-cover object-center" />
                 </span>
-                  <span :class="[selected ? 'ring-indigo-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']" aria-hidden="true" />
+                  <span :class="[selected ? 'ring-lunar-500' : 'ring-transparent', 'pointer-events-none absolute inset-0 rounded-md ring-2 ring-offset-2']" aria-hidden="true" />
                 </Tab>
               </TabList>
             </div>
@@ -47,10 +49,10 @@
           <p class="mt-6 text-gray-500">{{ project.medium_description }}</p>
 
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-            <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+            <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 focus:ring-offset-2 focus:ring-offset-gray-50">
               Website
             </button>
-            <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-lunar-200 px-8 py-3 text-base font-medium text-lunar-800 hover:bg-lunar-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+            <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-lunar-200 px-8 py-3 text-base font-medium text-lunar-800 hover:bg-lunar-300 focus:outline-none focus:ring-2 focus:ring-lunar-500 focus:ring-offset-2 focus:ring-offset-gray-50">
               Github
             </button>
           </div>
