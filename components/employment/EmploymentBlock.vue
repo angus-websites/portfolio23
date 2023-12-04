@@ -10,10 +10,15 @@
 
     <template #content>
       <ul v-if="employments" class="grid grid-cols-1 gap-y-8">
-        <li v-for="employment in employments">
+        <li v-if="employments.length > 0" v-for="employment in employments">
           <EmploymentRow
               :key="employment.id"
               :employment="employment" />
+        </li>
+        <li v-else>
+          <p class="text-center text-gray-500 dark:text-gray-400">
+            No employment history to show.
+          </p>
         </li>
       </ul>
       <LoadingAnimation v-else />
