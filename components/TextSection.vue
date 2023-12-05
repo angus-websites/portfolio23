@@ -14,7 +14,6 @@ defineProps({
   },
   content: {
     type: String,
-    default: "Content",
   },
 });
 

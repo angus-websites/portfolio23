@@ -1,7 +1,7 @@
 type FavouriteSectionItem = {
     id: number;
     title: string;
-    content: string;
+    content?: string;
 }
 
 export type FavouriteSection = {
