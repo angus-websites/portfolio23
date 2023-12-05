@@ -41,7 +41,7 @@
 
               <h2 id="information-heading" class="sr-only">Product information</h2>
               <p class="mt-2 text-sm text-gray-500">
-                {{ project.date }}
+                {{ project.date_created }}
               </p>
             </div>
 
@@ -159,7 +159,7 @@ import {Project} from "~/types/Project.js";
 
 const project: Project = {
   title: 'The Wavy Game',
-  date: 'September 2023',
+  date_created: 'September 2023',
   medium_description: 'A fun drinking game to play with the family, or your friends at a party. A website that allows you to play the game online, or download the app to play on your phone.',
   price: '$220',
   description:
