@@ -22,6 +22,13 @@
           </p>
         </li>
       </ul>
+      <ul v-else-if="error">
+        <li>
+          <p class="text-center text-red-700 dark:text-red-300">
+            Error fetching education
+          </p>
+        </li>
+      </ul>
       <LoadingAnimation v-else />
     </template>
   </BlockShell>
@@ -36,6 +43,6 @@ import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
 const { fetchData } = useApiData();
 
 // Fetch the skill categories from the API
-const { data: education} = fetchData<Education[]>('/education');
+const { data: education, error: error} = fetchData<Education[]>('/education');
 
 </script>

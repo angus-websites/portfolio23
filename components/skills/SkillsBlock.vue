@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <ul v-if="categories" class="grid grid-cols-1 gap-y-10">
 
       <li v-if="categories.length > 0" v-for="category in categories" :key="category.id">
@@ -32,6 +33,13 @@
         </p>
       </li>
     </ul>
+    <ul v-else-if="error">
+      <li>
+        <p class="text-center text-red-700 dark:text-red-300">
+          Error fetching skills
+        </p>
+      </li>
+    </ul>
     <LoadingAnimation v-else />
   </div>
 </template>
@@ -43,6 +51,6 @@ import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
 const { fetchData } = useApiData();
 
 // Fetch the skill categories from the API
-const { data: categories} = fetchData<SkillCategory[]>('/skill-categories');
+const { data: categories, error: error} = fetchData<SkillCategory[]>('/skill-categories');
 
 </script>
