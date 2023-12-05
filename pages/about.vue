@@ -1,7 +1,7 @@
 <template>
   <PageContainer>
       <div class="text-center sm:text-left">
-        <TitleAndSubtitle title="About" subtitle="The about page" />
+        <TitleAndSubtitle :title="pageData.title" :subtitle="pageData.subtitle" />
       </div>
 
       <!-- Setup -->
@@ -36,6 +36,16 @@
 
 <script setup lang="ts">
 
+// Generate some dummy setup data
+import TextSection from "~/components/TextSection.vue";
+import {FavouriteSection} from "~/types/Favourites";
+import { useApiData } from '~/composables/useApiData';
+import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
+
+definePageMeta({ middleware: 'fetch-page'});
+
+const routeSlug = useState('routeSlug')
+
 useHead({
   title: 'About - Angus',
   meta: [
@@ -43,15 +53,12 @@ useHead({
   ]
 })
 
-// Generate some dummy setup data
-import TextSection from "~/components/TextSection.vue";
-import {FavouriteSection} from "~/types/Favourites";
-
-import { useApiData } from '~/composables/useApiData';
-import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
-const { fetchData } = useApiData();
+const { fetchData, fetchItem } = useApiData();
 
 // Fetch the skill categories from the API
 const { data: allSections, error: error} = fetchData<FavouriteSection[]>('/favourite-sections');
+
+const { data: pageData, error: pageError} = fetchItem(`/pages/${routeSlug.value}`);
+
 
 </script>

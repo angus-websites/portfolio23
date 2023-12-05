@@ -15,7 +15,7 @@ export function useApiData<T = any>() {
     }
 
     /**
-     * Fetch data from the API
+     * Fetch a collection of data from the API
      */
     function fetchData<T = any>(endpoint: string) {
         const url = `${apiBaseUrl}/api${endpoint}`
@@ -26,5 +26,14 @@ export function useApiData<T = any>() {
         return { data, error, pending };
     }
 
-    return { getFullUrl, fetchData };
+    /**
+     * Fetch a single item of data from the API
+     */
+    function fetchItem<T = any>(endpoint: string) {
+        const url = `${apiBaseUrl}/api${endpoint}`
+        const { data, error, pending } = useFetch<T>(url);
+        return { data, error, pending };
+    }
+
+    return { getFullUrl, fetchData, fetchItem };
 }
