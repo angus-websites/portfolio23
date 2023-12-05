@@ -11,9 +11,9 @@
 
           <TabGroup as="div" class="flex flex-col-reverse">
             <!-- Image selector -->
-            <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-              <TabList class="grid grid-cols-4 gap-6">
-                <Tab v-for="image in images" :key="image.id" class="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4" v-slot="{ selected }">
+            <div class="mx-auto mt-6 w-full max-w-2xl lg:max-w-none">
+              <TabList class="grid grid-cols-3 sm:grid-cols-4 gap-6">
+                <Tab v-for="image in images" :key="image.id" class="relative flex h-16 xs:h-20 sm:h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4" v-slot="{ selected }">
                   <span class="sr-only">{{ image.name }}</span>
                   <span class="absolute inset-0 overflow-hidden rounded-md">
                   <img :src="image.src" alt="" class="h-full w-full object-cover object-center" />
@@ -23,9 +23,10 @@
               </TabList>
             </div>
 
-            <TabPanels class="aspect-h-3 aspect-w-4 w-full">
-              <TabPanel v-for="image in images" :key="image.id">
-                <img :src="image.src" :alt="image.alt" class="h-full w-full object-cover object-center sm:rounded-lg" />
+            <TabPanels class="w-full max-w-2xl lg:max-w-none mx-auto rounded-lg overflow-hidden bg-white h-[250px] xs:h-[375px] sm:h-[500px]"> <!-- Adjust 'height' as needed -->
+              <TabPanel v-for="image in images" :key="image.id" class="h-full w-full flex items-center justify-center">
+                <!-- The image will scale within these bounds -->
+                <img :src="image.src" :alt="image.alt" class="max-h-full max-w-full object-contain " />
               </TabPanel>
             </TabPanels>
           </TabGroup>
