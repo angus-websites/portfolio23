@@ -1,6 +1,6 @@
 <template>
   <PageContainer>
-      <div class="text-center sm:text-left">
+      <div v-if="pageData" class="text-center sm:text-left">
         <TitleAndSubtitle :title="pageData.title" :subtitle="pageData.subtitle" />
       </div>
 
@@ -41,10 +41,7 @@ import TextSection from "~/components/TextSection.vue";
 import {FavouriteSection} from "~/types/Favourites";
 import { useApiData } from '~/composables/useApiData';
 import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
-
-definePageMeta({ middleware: 'fetch-page'});
-
-const routeSlug = useState('routeSlug')
+import type { PageData } from "~/types/PageData";
 
 useHead({
   title: 'About - Angus',
@@ -58,7 +55,10 @@ const { fetchData, fetchItem } = useApiData();
 // Fetch the skill categories from the API
 const { data: allSections, error: error} = fetchData<FavouriteSection[]>('/favourite-sections');
 
-const { data: pageData, error: pageError} = fetchItem(`/pages/${routeSlug.value}`);
+const route = useRoute()
+
+// Fetch the page data from the API
+const { data: pageData, error: pageError} = fetchItem<PageData>(`/pages/${route.name}`);
 
 
 </script>

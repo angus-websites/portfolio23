@@ -1,10 +1,10 @@
 <template>
   <PageContainer>
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div v-if="pageData" class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <TitleAndSubtitle
-          title="Welcome to the portfolio"
-          subtitle="A subtitle goes here"
+          :title="pageData.title"
+          :subtitle="pageData.subtitle"
         />
       </div>
     </div>
@@ -21,11 +21,22 @@
   </PageContainer>
 </template>
 <script setup lang="ts">
+
+import {useApiData} from "~/composables/useApiData";
+import type { PageData } from "~/types/PageData";
+
 useHead({
   title: 'Home - Angus',
   meta: [
     { name: 'description', content: 'Portfolio description' }
   ]
 })
+
+const { fetchItem } = useApiData();
+
+const route = useRoute()
+
+// Fetch the page data from the API
+const { data: pageData, error: pageError} = fetchItem<PageData>(`/pages/${route.name}`);
 
 </script>

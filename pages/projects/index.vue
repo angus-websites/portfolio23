@@ -1,9 +1,9 @@
 <template>
   <PageContainer>
-    <div class="text-center sm:text-left">
+    <div v-if="pageData" class="text-center sm:text-left">
       <TitleAndSubtitle
-        title="My Projects"
-        subtitle="Some of my recent work..."
+        :title="pageData.title"
+        :subtitle="pageData.subtitle"
       />
     </div>
     <p v-if="error">Error fetching projects</p>
@@ -22,6 +22,8 @@
 </template>
 <script lang="ts" setup>
 import type { Project } from "~/types/Project";
+import {useApiData} from "~/composables/useApiData";
+import {PageData} from "~/types/PageData";
 
 useHead({
   title: 'Projects - Angus',
@@ -45,5 +47,16 @@ const projects: Project[] = [
     short_description: "A fun drinking game to play with the family",
   },
 ]
+
+const error = false
+
+const { fetchItem } = useApiData();
+
+const route = useRoute()
+
+// Fetch the page data from the API
+const { data: pageData, error: pageError} = fetchItem<PageData>(`/pages/${route.name}`);
+
+
 
 </script>
