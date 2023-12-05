@@ -1,7 +1,7 @@
 
 <template>
   <div class="">
-    <div class="mx-auto px-4 pb-16 sm:px-6  lg:max-w-7xl lg:px-8">
+    <div v-if="!project.coming_soon" class="mx-auto px-4 pb-16 sm:px-6  lg:max-w-7xl lg:px-8">
       <!-- Breadcrumb -->
       <ProjectBreadcrumb  class="my-5" />
       <!-- Product -->
@@ -141,6 +141,19 @@
         </div>
       </div>
     </div>
+    <div v-else>
+      <main class="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
+        <div class="text-center">
+          <h1 class="mt-4 text-3xl font-bold tracking-tight text-evening-sea-900 dark:text-evening-sea-200 sm:text-5xl">Coming soon</h1>
+          <p class="mt-6 text-base leading-7 text-zinc-600 dark:text-zinc-300">
+            This project is still in development. Check back later for updates.
+          </p>
+          <div class="mt-10 flex items-center justify-center gap-x-6">
+            <NuxtLink to="/projects" class="rounded-md bg-lunar-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-lunar-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lunar-800">Other projects</NuxtLink>
+          </div>
+        </div>
+      </main>
+    </div>
   </div>
 </template>
 
@@ -159,6 +172,7 @@ import {Project} from "~/types/Project.js";
 
 const project: Project = {
   title: 'The Wavy Game',
+  coming_soon: true,
   date_created: 'September 2023',
   medium_description: 'A fun drinking game to play with the family, or your friends at a party. A website that allows you to play the game online, or download the app to play on your phone.',
   price: '$220',

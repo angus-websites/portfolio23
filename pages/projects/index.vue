@@ -36,12 +36,14 @@ useHead({
 const projects: Project[] = [
   {
     id: 1,
+    coming_soon: false,
     title: "Project 4",
     slug: "project-4",
     short_description: "A fun drinking game to play with the family",
   },
   {
     id: 2,
+    coming_soon: true,
     title: "Project 2",
     slug: "project-2",
     short_description: "A fun drinking game to play with the family",

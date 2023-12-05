@@ -3,6 +3,7 @@ import {Skill} from "~/types/Skill";
 
 export type Project = {
   id: number;
+  coming_soon: boolean;
   slug: string;
   title: string;
   short_description: string;
