@@ -59,8 +59,8 @@
           </div>
 
           <div class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
-            <h3 class="text-sm font-medium text-zinc-900 dark:text-lunar-200">Highlights</h3>
-            <div class="prose prose-sm mt-4 text-zinc-500 dark:text-zinc-200 dark:opacity-60">
+            <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Highlights</h3>
+            <div class="prose prose-sm mt-4 text-zinc-500 dark:text-zinc-200 dark:opacity-80">
               <ul role="list">
                 <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
               </ul>
@@ -68,7 +68,7 @@
           </div>
 
           <div class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
-            <h3 class="text-sm font-medium text-zinc-900 dark:text-lunar-200">Tech stack</h3>
+            <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Tech stack</h3>
             <div class="my-10 grid grid-cols-4 gap-5">
               <div v-for="skill in stack" class="mx-auto flex flex-col items-center space-y-3">
                 <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col justify-center transition-opacity duration-200 ease-in-out'"
@@ -96,12 +96,12 @@
 
         </div>
 
-        <div class="mx-auto mt-16 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
+        <div class="mx-auto mt-20 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
 
-          <div class="pt-10">
+          <div class="py-5 border-t border-b border-evening-sea-700 border-opacity-30 dark:border-opacity-30">
             <h3 class="sr-only">Overview</h3>
 
-            <div class="prose max-w-none prose-slate dark:prose-invert" v-html="license.content" />
+            <div class="prose max-w-none prose-polo prose-img:rounded-lg prose-h2:text-lunar-800 dark:prose-h2:text-lunar-300 dark:prose-invert" v-html="license.content" />
           </div>
         </div>
       </div>
@@ -199,28 +199,52 @@ const license = {
   summary:
       'For personal and professional use. You cannot resell or redistribute these icons in their original or modified state.',
   content: `
-    <h4>Overview</h4>
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <p>This is a sample paragraph with <strong>bold text</strong> and <a href="#">a link</a>.</p>
+    <p class="lead">This is a leading paragraph to test '--tw-prose-lead'.</p>
 
-    <p>For personal and professional use. You cannot resell or redistribute these icons in their original or modified state.</p>
-
-    <ul role="list">
-    <li>You\'re allowed to use the icons in unlimited projects.</li>
-    <li>Attribution is not required to use the icons.</li>
+    <ul>
+        <li>Bullet List Item 1</li>
+        <li>Bullet List Item 2</li>
     </ul>
 
-    <h4>What you can do with it</h4>
+    <ol>
+        <li>Numbered List Item 1</li>
+        <li>Numbered List Item 2</li>
+    </ol>
 
-    <ul role="list">
-    <li>Use them freely in your personal and professional work.</li>
-    <li>Make them your own. Change the colors to suit your project or brand.</li>
-    </ul>
+    <hr>
 
-    <h4>What you can\'t do with it</h4>
+    <blockquote>
+        This is a blockquote to test '--tw-prose-quotes'.
+    </blockquote>
 
-    <ul role="list">
-    <li>Don\'t be greedy. Selling or distributing these icons in their original or modified state is prohibited.</li>
-    <li>Don\'t be evil. These icons cannot be used on websites or applications that promote illegal or immoral beliefs or activities.</li>
-    </ul>
+    <figure>
+        <img src="https://tailwindui.com/img/ecommerce-images/product-page-03-product-01.jpg" alt="Sample Image">
+        <figcaption>This is a caption to test '--tw-prose-captions'.</figcaption>
+    </figure>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+            </tr>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <pre><code>This is a code block to test '--tw-prose-code' and '--tw-prose-pre-code'.</code></pre>
   `,
 }
 
