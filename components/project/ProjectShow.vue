@@ -40,14 +40,14 @@
               <h1 class="text-2xl font-bold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-200">{{ project.title }}</h1>
 
               <h2 id="information-heading" class="sr-only">Date created</h2>
-              <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-300 dark:opacity-60">
+              <p class="mt-2 text-sm text-lunar-700 dark:text-lunar-300 dark:opacity-80">
                 {{ project.date_created }}
               </p>
             </div>
 
           </div>
 
-          <p class="mt-6 text-zinc-500 dark:text-zinc-200 dark:opacity-70">{{ project.medium_description }}</p>
+          <p class="mt-6 text-zinc-600 dark:text-zinc-200 dark:opacity-70">{{ project.medium_description }}</p>
 
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
             <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 focus:ring-offset-2 focus:ring-offset-gray-50">
@@ -60,7 +60,7 @@
 
           <div class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
             <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Highlights</h3>
-            <div class="prose prose-sm mt-4 text-zinc-500 dark:text-zinc-200 dark:opacity-80">
+            <div class="prose prose-sm mt-4 prose-polo dark:prose-invert">
               <ul role="list">
                 <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
               </ul>
