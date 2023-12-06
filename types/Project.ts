@@ -1,5 +1,16 @@
 import { Image } from "~/types/Image";
 import {Skill} from "~/types/Skill";
+import {Tag} from "~/types/Tag";
+
+type ProjectImage = {
+  cover_image: Image;
+  images?: Image[];
+}
+
+type NestedTag = {
+  relationTo: string;
+  value: Tag;
+}
 
 export type Project = {
   id: number;
@@ -9,11 +20,11 @@ export type Project = {
   short_description: string;
   medium_description?: string;
   long_description?: string;
-  cover_image: Image;
-  images?: Image[];
+  images: ProjectImage
   date_created: string;
   git_link?: string;
   web_link?: string;
   stack: Skill[];
+  tags: NestedTag[];
 
 };
