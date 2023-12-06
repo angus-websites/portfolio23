@@ -36,6 +36,7 @@ const { fetchItem } = useApiData();
 
 const route = useRoute()
 
+
 // Fetch the page data from the API
 const { data: pageData, error: pageError} = fetchItem<PageData>(`/pages/${route.name}`);
 

@@ -8,15 +8,18 @@
     </div>
     <p v-if="error">Error fetching projects</p>
     <ul
-      v-else
+      v-else-if="projects"
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-20"
     >
-      <li v-for="project in projects" class="mx-auto sm:mx-0">
+      <li v-if="projects.length > 0" v-for="project in projects" class="mx-auto sm:mx-0">
           <span class="sr-only">{{project.title}}</span>
           <ProjectCard
               :key="project.id"
               :project="project"
                />
+      </li>
+      <li v-else class="text-center text-gray-500 dark:text-gray-300 col-span-full">
+        No projects to show.
       </li>
     </ul>
   </PageContainer>
@@ -33,29 +36,11 @@ useHead({
   ]
 })
 
-// Create a fake project list
-const projects: Project[] = [
-  {
-    id: 1,
-    coming_soon: false,
-    title: "Project 4",
-    slug: "project-4",
-    short_description: "A fun drinking game to play with the family",
-  },
-  {
-    id: 2,
-    coming_soon: true,
-    title: "Project 2",
-    slug: "project-2",
-    short_description: "A fun drinking game to play with the family",
-  },
-]
-
-const error = false
-
-const { fetchItem } = useApiData();
+const { fetchItem, fetchData } = useApiData();
 
 const route = useRoute()
+
+const { data: projects, error: error} = fetchData<Project[]>('/projects');
 
 // Fetch the page data from the API
 const { data: pageData, error: pageError} = fetchItem<PageData>(`/pages/${route.name}`);
