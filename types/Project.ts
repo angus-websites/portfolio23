@@ -3,14 +3,24 @@ import {Skill} from "~/types/Skill";
 import {Tag} from "~/types/Tag";
 import {SeoMeta} from "~/types/SeoMeta";
 
+type NestedProjectImage = {
+  id: string
+  image: Image;
+}
+
 type ProjectImage = {
   cover_image: Image;
-  images?: Image[];
+  images?: NestedProjectImage[];
 }
 
 type NestedTag = {
   relationTo: string;
   value: Tag;
+}
+
+type NestedStackItem = {
+  relationTo: string;
+  value: Skill;
 }
 
 export type Project = {
@@ -25,7 +35,7 @@ export type Project = {
   date_created: string;
   git_link?: string;
   web_link?: string;
-  stack: Skill[];
+  stack: NestedStackItem[];
   tags: NestedTag[];
   meta?: SeoMeta;
 

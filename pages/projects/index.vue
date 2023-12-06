@@ -40,10 +40,10 @@ const { fetchItem, fetchData } = useApiData();
 
 const route = useRoute()
 
-const { data: projects, error: error} = fetchData<Project[]>('/projects');
+const { data: projects, error: error} = await fetchData<Project[]>('/projects');
 
 // Fetch the page data from the API
-const { data: pageData, error: pageError} = fetchItem<PageData>(`/pages/${route.name}`);
+const { data: pageData, error: pageError} = await fetchItem<PageData>(`/pages/${route.name}`);
 
 
 
