@@ -7,6 +7,7 @@ export type Project = {
   slug: string;
   title: string;
   short_description: string;
+  medium_description?: string;
   long_description?: string;
   cover_image: Image;
   images?: Image[];

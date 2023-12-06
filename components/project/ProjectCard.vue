@@ -25,9 +25,9 @@
             </h3>
           </div>
           <div>
-            <p class="text-evening-sea-700 dark:text-evening-sea-200">
+            <p class="text-zinc-400 dark:text-zinc-300">
               <span v-if="!project.coming_soon">2023</span>
-              <span v-else class="group-hover:text-zinc-400 dark:group-hover:text-zinc-300">Coming soon</span>
+              <span v-else class="group-hover:text-evening-sea-700 dark:group-hover:text-evening-sea-200">Coming soon</span>
             </p>
           </div>
         </div>

@@ -23,7 +23,7 @@
               </TabList>
             </div>
 
-            <TabPanels class="w-full max-w-2xl lg:max-w-none mx-auto rounded-lg overflow-hidden bg-white h-[250px] xs:h-[375px] sm:h-[500px]"> <!-- Adjust 'height' as needed -->
+            <TabPanels class="w-full max-w-2xl lg:max-w-none mx-auto rounded-lg overflow-hidden bg-white dark:bg-opacity-10 h-[250px] xs:h-[375px] sm:h-[500px]"> <!-- Adjust 'height' as needed -->
               <TabPanel v-for="image in images" :key="image.id" class="h-full w-full flex items-center justify-center">
                 <!-- The image will scale within these bounds -->
                 <img :src="image.src" :alt="image.alt" class="max-h-full max-w-full object-contain " />
@@ -37,17 +37,17 @@
         <div class="mx-auto mt-14 max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
           <div class="flex flex-col-reverse">
             <div class="">
-              <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ project.title }}</h1>
+              <h1 class="text-2xl font-bold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-200">{{ project.title }}</h1>
 
-              <h2 id="information-heading" class="sr-only">Product information</h2>
-              <p class="mt-2 text-sm text-gray-500">
+              <h2 id="information-heading" class="sr-only">Date created</h2>
+              <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-300 dark:opacity-60">
                 {{ project.date_created }}
               </p>
             </div>
 
           </div>
 
-          <p class="mt-6 text-gray-500">{{ project.medium_description }}</p>
+          <p class="mt-6 text-zinc-500 dark:text-zinc-200 dark:opacity-70">{{ project.medium_description }}</p>
 
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
             <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 focus:ring-offset-2 focus:ring-offset-gray-50">
@@ -58,17 +58,17 @@
             </button>
           </div>
 
-          <div class="mt-10 border-t border-gray-200 pt-10">
-            <h3 class="text-sm font-medium text-gray-900">Highlights</h3>
-            <div class="prose prose-sm mt-4 text-gray-500">
+          <div class="mt-10 border-t border-zinc-200 dark:border-evening-sea-500 dark:border-opacity-30 pt-10">
+            <h3 class="text-sm font-medium text-zinc-900 dark:text-lunar-200">Highlights</h3>
+            <div class="prose prose-sm mt-4 text-zinc-500 dark:text-zinc-200 dark:opacity-60">
               <ul role="list">
                 <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
               </ul>
             </div>
           </div>
 
-          <div class="mt-10 border-t border-gray-200 pt-10">
-            <h3 class="text-sm font-medium text-gray-900">Tech stack</h3>
+          <div class="mt-10 border-t border-zinc-200 dark:border-evening-sea-500 dark:border-opacity-30 pt-10">
+            <h3 class="text-sm font-medium text-zinc-900 dark:text-lunar-200">Tech stack</h3>
             <div class="my-10 grid grid-cols-4 gap-5">
               <div v-for="skill in stack" class="mx-auto flex flex-col items-center space-y-3">
                 <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col justify-center transition-opacity duration-200 ease-in-out'"
@@ -98,16 +98,16 @@
 
         <div class="mx-auto mt-16 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
           <TabGroup as="div">
-            <div class="border-b border-gray-200">
+            <div class="border-b border-gray-200 dark:border-zinc-200 dark:border-opacity-10">
               <TabList class="-mb-px flex space-x-8">
                 <Tab as="template" v-slot="{ selected }">
-                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600' : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">Overview</button>
+                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600 dark:border-mulberry-300 dark:text-mulberry-300' : 'border-transparent text-zinc-700 hover:border-zinc-300 hover:text-zinc-800 dark:text-zinc-200 dark:hover:border-zinc-300 dark:hover:border-opacity-40', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">Overview</button>
                 </Tab>
                 <Tab as="template" v-slot="{ selected }">
-                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600' : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">FAQ</button>
+                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600 dark:border-mulberry-300 dark:text-mulberry-300' : 'border-transparent text-zinc-700 hover:border-zinc-300 hover:text-zinc-800 dark:text-zinc-200 dark:hover:border-zinc-300 dark:hover:border-opacity-40', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">FAQ</button>
                 </Tab>
                 <Tab as="template" v-slot="{ selected }">
-                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600' : 'border-transparent text-gray-700 hover:border-gray-300 hover:text-gray-800', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">License</button>
+                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600 dark:border-mulberry-300 dark:text-mulberry-300' : 'border-transparent text-zinc-700 hover:border-zinc-300 hover:text-zinc-800 dark:text-zinc-200 dark:hover:border-zinc-300 dark:hover:border-opacity-40', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">License</button>
                 </Tab>
               </TabList>
             </div>
@@ -115,7 +115,7 @@
               <TabPanel class="pt-10">
                 <h3 class="sr-only">Overview</h3>
 
-                <div class="prose prose-sm max-w-none text-gray-500" v-html="license.content" />
+                <div class="prose prose-sm max-w-none text-gray-500 dark:prose-invert" v-html="license.content" />
               </TabPanel>
 
               <TabPanel class="text-sm text-gray-500">
@@ -172,7 +172,7 @@ import {Project} from "~/types/Project.js";
 
 const project: Project = {
   title: 'The Wavy Game',
-  coming_soon: true,
+  coming_soon: false,
   date_created: 'September 2023',
   medium_description: 'A fun drinking game to play with the family, or your friends at a party. A website that allows you to play the game online, or download the app to play on your phone.',
   price: '$220',
