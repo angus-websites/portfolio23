@@ -51,6 +51,6 @@ import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
 const { fetchData } = useApiData();
 
 // Fetch the skill categories from the API
-const { data: categories, error: error} = fetchData<SkillCategory[]>('/skill-categories');
+const { data: categories, error: error} = await fetchData<SkillCategory[]>('/skill-categories');
 
 </script>

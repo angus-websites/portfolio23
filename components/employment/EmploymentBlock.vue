@@ -42,7 +42,7 @@ import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
 const { fetchData } = useApiData();
 
 // Fetch the skill categories from the API
-const { data: employments, error: error} = fetchData<Employment[]>('/employment');
+const { data: employments, error: error} = await fetchData<Employment[]>('/employment');
 
 
 </script>

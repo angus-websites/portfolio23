@@ -53,12 +53,12 @@ useHead({
 const { fetchData, fetchItem } = useApiData();
 
 // Fetch the skill categories from the API
-const { data: allSections, error: error} = fetchData<FavouriteSection[]>('/favourite-sections');
+const { data: allSections, error: error} = await fetchData<FavouriteSection[]>('/favourite-sections');
 
 const route = useRoute()
 
 // Fetch the page data from the API
-const { data: pageData, error: pageError} = fetchItem<PageData>(`/pages/${route.name}`);
+const { data: pageData, error: pageError} = await fetchItem<PageData>(`/pages/${route.name}`);
 
 
 </script>

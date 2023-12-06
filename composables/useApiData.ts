@@ -17,13 +17,13 @@ export function useApiData<T = any>() {
     /**
      * Fetch a collection of data from the API
      */
-    function fetchData<T = any>(endpoint: string) {
+    async function fetchData<T = any>(endpoint: string) {
         const url = `${apiBaseUrl}/api${endpoint}`
-        const { data, error, pending } = useFetch<T>(url, {
+        const {data, error, pending} = await useFetch<T>(url, {
             transform: (response: any) => response.docs ? response.docs : []
         });
 
-        return { data, error, pending };
+        return {data, error, pending};
     }
 
     /**
