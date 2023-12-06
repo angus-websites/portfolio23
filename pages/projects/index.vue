@@ -12,6 +12,7 @@
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-20"
     >
       <li v-for="project in projects" class="mx-auto sm:mx-0">
+          <span class="sr-only">{{project.title}}</span>
           <ProjectCard
               :key="project.id"
               :project="project"
