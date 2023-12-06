@@ -1,6 +1,7 @@
 import { Image } from "~/types/Image";
 import {Skill} from "~/types/Skill";
 import {Tag} from "~/types/Tag";
+import {SeoMeta} from "~/types/SeoMeta";
 
 type ProjectImage = {
   cover_image: Image;
@@ -26,5 +27,6 @@ export type Project = {
   web_link?: string;
   stack: Skill[];
   tags: NestedTag[];
+  meta?: SeoMeta;
 
 };
