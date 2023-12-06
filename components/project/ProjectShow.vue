@@ -58,7 +58,7 @@
             </button>
           </div>
 
-          <div class="mt-10 border-t border-zinc-200 dark:border-evening-sea-500 dark:border-opacity-30 pt-10">
+          <div class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
             <h3 class="text-sm font-medium text-zinc-900 dark:text-lunar-200">Highlights</h3>
             <div class="prose prose-sm mt-4 text-zinc-500 dark:text-zinc-200 dark:opacity-60">
               <ul role="list">
@@ -67,7 +67,7 @@
             </div>
           </div>
 
-          <div class="mt-10 border-t border-zinc-200 dark:border-evening-sea-500 dark:border-opacity-30 pt-10">
+          <div class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
             <h3 class="text-sm font-medium text-zinc-900 dark:text-lunar-200">Tech stack</h3>
             <div class="my-10 grid grid-cols-4 gap-5">
               <div v-for="skill in stack" class="mx-auto flex flex-col items-center space-y-3">
@@ -97,47 +97,12 @@
         </div>
 
         <div class="mx-auto mt-16 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
-          <TabGroup as="div">
-            <div class="border-b border-gray-200 dark:border-zinc-200 dark:border-opacity-10">
-              <TabList class="-mb-px flex space-x-8">
-                <Tab as="template" v-slot="{ selected }">
-                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600 dark:border-mulberry-300 dark:text-mulberry-300' : 'border-transparent text-zinc-700 hover:border-zinc-300 hover:text-zinc-800 dark:text-zinc-200 dark:hover:border-zinc-300 dark:hover:border-opacity-40', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">Overview</button>
-                </Tab>
-                <Tab as="template" v-slot="{ selected }">
-                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600 dark:border-mulberry-300 dark:text-mulberry-300' : 'border-transparent text-zinc-700 hover:border-zinc-300 hover:text-zinc-800 dark:text-zinc-200 dark:hover:border-zinc-300 dark:hover:border-opacity-40', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">FAQ</button>
-                </Tab>
-                <Tab as="template" v-slot="{ selected }">
-                  <button :class="[selected ? 'border-mulberry-600 text-mulberry-600 dark:border-mulberry-300 dark:text-mulberry-300' : 'border-transparent text-zinc-700 hover:border-zinc-300 hover:text-zinc-800 dark:text-zinc-200 dark:hover:border-zinc-300 dark:hover:border-opacity-40', 'whitespace-nowrap border-b-2 py-6 text-sm font-medium']">License</button>
-                </Tab>
-              </TabList>
-            </div>
-            <TabPanels as="template">
-              <TabPanel class="pt-10">
-                <h3 class="sr-only">Overview</h3>
 
-                <div class="prose prose-sm max-w-none text-gray-500 dark:prose-invert" v-html="license.content" />
-              </TabPanel>
+          <div class="pt-10">
+            <h3 class="sr-only">Overview</h3>
 
-              <TabPanel class="text-sm text-gray-500">
-                <h3 class="sr-only">Frequently Asked Questions</h3>
-
-                <dl>
-                  <template v-for="faq in faqs" :key="faq.question">
-                    <dt class="mt-10 font-medium text-gray-900">{{ faq.question }}</dt>
-                    <dd class="prose prose-sm mt-2 max-w-none text-gray-500">
-                      <p>{{ faq.answer }}</p>
-                    </dd>
-                  </template>
-                </dl>
-              </TabPanel>
-
-              <TabPanel class="pt-10">
-                <h3 class="sr-only">License</h3>
-
-                <div class="prose prose-sm max-w-none text-gray-500" v-html="license.content" />
-              </TabPanel>
-            </TabPanels>
-          </TabGroup>
+            <div class="prose max-w-none prose-slate dark:prose-invert" v-html="license.content" />
+          </div>
         </div>
       </div>
     </div>
