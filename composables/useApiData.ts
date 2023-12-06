@@ -29,10 +29,10 @@ export function useApiData<T = any>() {
     /**
      * Fetch a single item of data from the API
      */
-    function fetchItem<T = any>(endpoint: string) {
+    async function fetchItem<T = any>(endpoint: string) {
         const url = `${apiBaseUrl}/api${endpoint}`
-        const { data, error, pending } = useFetch<T>(url);
-        return { data, error, pending };
+        const {data, error, pending} = await useFetch<T>(url);
+        return {data, error, pending};
     }
 
     return { getFullUrl, fetchData, fetchItem };

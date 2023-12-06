@@ -10,22 +10,27 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-const route = useRoute()
-const slug = ref(route.params.slug)
+import {PageData} from "~/types/PageData";
+import { useApiData } from '~/composables/useApiData';
 
-// Create a fake project
-const project = ref({
-  id: 1,
-  name: 'Project 1',
-  slug: 'project-1',
-  description: 'A fun drinking game to play with the family',
-})
+
+const { fetchItem } = useApiData();
+const route = useRoute()
+
+
+// Fetch the page data from the API
+const { data: project } = await fetchItem<PageData>(`/projects/slug/${route.params.slug}`);
+
+if (!project.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: 'Project Not Found'
+  })
+}
+
 
 useHead({
-  title: project.value.name,
-  meta: [
-    { name: 'description', content: 'Project description - Angus' }
-  ]
+  title: project.value.title,
 })
 
 </script>
