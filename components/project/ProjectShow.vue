@@ -24,10 +24,13 @@
             </div>
 
             <TabPanels class="w-full max-w-2xl lg:max-w-none mx-auto rounded-lg overflow-hidden bg-white dark:bg-opacity-10 h-[250px] xs:h-[375px] sm:h-[500px]">
-              <TabPanel v-for="image in project.images.images" :key="image.id" class="h-full w-full flex items-center justify-center">
+              <TabPanel v-if="hasProjectImages()" v-for="image in project.images.images" :key="image.id" class="h-full w-full flex items-center justify-center">
                 <!-- The image will scale within these bounds -->
                 <img :src="getFullUrl(image.image.url)" :alt="image.image.alt" class="max-h-full max-w-full object-contain " />
               </TabPanel>
+              <div v-else class="h-full w-full flex items-center justify-center">
+                <img :src="getFullUrl(project.images.cover_image.url)" :alt="project.images.cover_image.alt" class="max-h-full max-w-full object-contain " />
+              </div>
             </TabPanels>
           </TabGroup>
 
@@ -47,15 +50,19 @@
 
           </div>
 
-          <p class="mt-6 text-zinc-600 dark:text-zinc-200 dark:opacity-70">{{ project.medium_description }}</p>
+          <p class="mt-6 text-zinc-600 dark:text-zinc-200 dark:opacity-70">
+            <span v-if="project.medium_description">{{ project.medium_description }}</span>
+            <span v-else>{{ project.short_description }}</span>
+
+          </p>
 
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-            <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 focus:ring-offset-2 focus:ring-offset-gray-50">
+            <a v-if="project.links.web_link" :href="project.links.web_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 focus:ring-offset-2 focus:ring-offset-gray-50">
               Website
-            </button>
-            <button type="button" class="flex w-full items-center justify-center rounded-md border border-transparent bg-lunar-200 px-8 py-3 text-base font-medium text-lunar-800 hover:bg-lunar-300 focus:outline-none focus:ring-2 focus:ring-lunar-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+            </a>
+            <a v-if="project.links.git_link" :href="project.links.git_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-lunar-200 px-8 py-3 text-base font-medium text-lunar-800 hover:bg-lunar-300 focus:outline-none focus:ring-2 focus:ring-lunar-500 focus:ring-offset-2 focus:ring-offset-gray-50">
               Github
-            </button>
+            </a>
           </div>
 
           <div v-if="project.highlights" class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
@@ -128,7 +135,7 @@ import {Project} from "~/types/Project.js";
 import {PropType} from "vue";
 import {useApiData} from "~/composables/useApiData";
 
-defineProps({
+const props = defineProps({
   project: {
     type: Object as PropType<Project>,
     required: true,
@@ -139,6 +146,14 @@ const {getFullUrl} = useApiData();
 
 const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' });
+}
+
+function hasProjectImages(){
+  // Handle undefined
+  if (props.project.images && props.project.images.images) {
+    return props.project.images.images.length > 0;
+  }
+  return false
 }
 
 

@@ -23,6 +23,11 @@ type NestedStackItem = {
   value: Skill;
 }
 
+type ProjectLinks = {
+    git_link?: string;
+    web_link?: string;
+}
+
 export type Project = {
   id: number;
   coming_soon: boolean;
@@ -33,10 +38,10 @@ export type Project = {
   long_description?: string;
   images: ProjectImage
   date_created: string;
-  git_link?: string;
-  web_link?: string;
+  links: ProjectLinks
   stack: NestedStackItem[];
   tags: NestedTag[];
+  highlights: string[];
   meta?: SeoMeta;
 
 };
