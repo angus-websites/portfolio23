@@ -1,6 +1,4 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
-require('dotenv').config()
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/color-mode"],
