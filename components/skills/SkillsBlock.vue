@@ -21,16 +21,12 @@
                 :skill="skill" />
           </li>
           <li v-else class="col-span-3 sm:col-span-4">
-            <p class="text-center text-gray-500 dark:text-gray-400">
-              No skills to show.
-            </p>
+            <EmptyState class="text-center">No skills to show.</EmptyState>
           </li>
         </ul>
       </li>
       <li v-else>
-        <p class="text-center text-gray-500 dark:text-gray-400">
-          No Skills to show
-        </p>
+        <EmptyState class="text-center">No skills to show.</EmptyState>
       </li>
     </ul>
     <ul v-else-if="error">

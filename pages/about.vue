@@ -19,9 +19,7 @@
               </ul>
             </template>
           </AboutShell>
-          <p v-else class="text-center text-gray-500 dark:text-gray-400">
-            No favourites to show.
-          </p>
+          <EmptyState v-else class="text-center">No favourites to show.</EmptyState>
         </div>
         <div v-else-if="error">
           <p class="text-center text-red-700 dark:text-red-300">

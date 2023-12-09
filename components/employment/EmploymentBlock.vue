@@ -16,9 +16,7 @@
               :employment="employment" />
         </li>
         <li v-else>
-          <p class="text-center text-gray-500 dark:text-gray-400">
-            No employment history to show.
-          </p>
+          <EmptyState class="text-center">No employment history to show.</EmptyState>
         </li>
       </ul>
       <ul v-else-if="error">

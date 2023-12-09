@@ -18,8 +18,8 @@
               :project="project"
                />
       </li>
-      <li v-else class="text-center text-gray-500 dark:text-gray-300 col-span-full">
-        No projects to show.
+      <li v-else class="text-center col-span-full">
+        <EmptyState>No projects to show.</EmptyState>
       </li>
     </ul>
   </PageContainer>
