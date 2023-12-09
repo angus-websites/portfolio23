@@ -128,18 +128,19 @@ import {Project} from "~/types/Project.js";
 import {PropType} from "vue";
 import {useApiData} from "~/composables/useApiData";
 
-const props = defineProps({
+defineProps({
   project: {
     type: Object as PropType<Project>,
     required: true,
   }
 })
+const {getFullUrl} = useApiData();
+
 
 const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' });
 }
 
-const {getFullUrl} = useApiData();
 
 
 
