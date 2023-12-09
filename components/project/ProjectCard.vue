@@ -4,11 +4,11 @@
       :class="project.coming_soon ? '' : ' hover:bg-zinc-50 hover:dark:bg-opacity-80'"
   >
     <ProjectLink :project="project">
-      <div class="">
+      <div class="border-b dark:border-evening-sea-600 dark:border-opacity-20">
         <img
             width="100"
             height="100"
-            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-base-300"
+            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-base-300 b"
             :class="project.coming_soon ? 'brightness-50' : ''"
             :src="getFullUrl(project.images.cover_image.url)"
             :alt="project.images.cover_image.alt"
