@@ -1,31 +1,28 @@
-# use the official Bun image
-# see all versions at https://hub.docker.com/r/oven/bun/tags
+# Use the official Bun image
 FROM oven/bun:latest as base
 WORKDIR /usr/src/app
 
-
+# Install stage: Install dependencies into temp directory
 FROM base AS install
-
-# install dependencies into temp directory
 RUN mkdir -p /temp/build
 COPY package.json bun.lockb /temp/build/
-RUN cd /temp/build && bun install --frozen-lockfile
+WORKDIR /temp/build
+RUN bun install --frozen-lockfile
 
-
+# Prerelease (build) stage: Copy source code and build in the temp directory
 FROM base AS prerelease
-COPY --from=install /temp/build/node_modules node_modules
-COPY . .
-
-# [optional] tests & build
+COPY --from=install /temp/build/node_modules /temp/build/node_modules
+COPY . /temp/build/
+WORKDIR /temp/build
 ENV NODE_ENV=production
 RUN bun --bun run build
 
-# copy production dependencies and source code into final image
+# Release stage: Copy production dependencies and source code into final image
 FROM base AS release
-COPY --from=prerelease /usr/src/app/.output .
-COPY --from=prerelease /usr/src/app/package.json .
+COPY --from=prerelease /temp/build/.output ./
+COPY --from=prerelease /temp/build/package.json .
 
-# run the app
+# Run the app
 USER bun
 EXPOSE 3000/tcp
-ENTRYPOINT [ "bun", "run", "server/index.mjs" ]
+ENTRYPOINT ["bun", "run", "server/index.mjs"]
