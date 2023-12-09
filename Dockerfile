@@ -19,10 +19,14 @@ RUN bun --bun run build
 
 # Release stage: Copy production dependencies and source code into final image
 FROM base AS release
-COPY --from=prerelease /temp/build/.output ./
+COPY --from=prerelease /temp/build/.output .
 COPY --from=prerelease /temp/build/package.json .
+COPY --from=prerelease /temp/build/prod.sh start.sh
 
 # Run the app
 USER bun
 EXPOSE 3000/tcp
-ENTRYPOINT ["bun", "run", "server/index.mjs"]
+
+# Copy our prod script and set permissions
+CMD /bin/sh start.sh
+
