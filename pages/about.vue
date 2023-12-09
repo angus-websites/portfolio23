@@ -1,32 +1,46 @@
 <template>
   <PageContainer>
-    <div class="text-center sm:text-left">
-      <TitleAndSubtitle title="About" subtitle="The about page" />
-    </div>
+      <div v-if="pageData" class="text-center sm:text-left">
+        <TitleAndSubtitle :title="pageData.title" :subtitle="pageData.subtitle" />
+      </div>
 
-    <!-- Setup -->
-    <AboutShell v-for="section in allSections" class="my-20">
-      <template #title>
-        {{  section.title }}
-      </template>
-      <template #content>
-        <ul role="list" class="space-y-10">
-          <li v-for="item in section.content">
-            <TextSection :title="item.title" :content="item.content" />
-          </li>
-        </ul>
-      </template>
-    </AboutShell>
+      <!-- Setup -->
+      <div class="my-20">
+        <div v-if="allSections" class="grid grid-cols-1 gap-y-20">
+          <AboutShell v-if="allSections.length > 0" v-for="section in allSections" :key="section.id">
+            <template #title>
+              {{  section.title }}
+            </template>
+            <template #content>
+              <ul role="list" class="space-y-10">
+                <li v-for="item in section.items">
+                  <TextSection :title="item.title" :content="item.content" />
+                </li>
+              </ul>
+            </template>
+          </AboutShell>
+          <EmptyState v-else class="text-center">No favourites to show.</EmptyState>
+        </div>
+        <div v-else-if="error">
+          <ErrorState class="text-center">
+            Error fetching favourites
+          </ErrorState>
+        </div>
+        <LoadingAnimation v-else />
+      </div>
 
-    <div class="my-20">
-      <a target="_blank" href="https://www.ecowebhosting.co.uk/" rel="noopener">
-        <img class="mx-auto " src="https://eco-cdn.co.uk/eco-badge-2.svg" alt="Planting trees every month with Eco Web Hosting">
-      </a>
-    </div>
-  </PageContainer>
+    </PageContainer>
 </template>
 
 <script setup lang="ts">
+
+// Generate some dummy setup data
+import TextSection from "~/components/TextSection.vue";
+import {FavouriteSection} from "~/types/Favourites";
+import { useApiData } from '~/composables/useApiData';
+import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
+import type { PageData } from "~/types/PageData";
+import ErrorState from "~/components/ErrorState.vue";
 
 useHead({
   title: 'About - Angus',
@@ -35,45 +49,15 @@ useHead({
   ]
 })
 
-// Generate some dummy setup data
-import TextSection from "~/components/TextSection.vue";
+const { fetchData, fetchItem } = useApiData();
 
-const setup = Array.from({ length: 3 }, (_, i) => ({
-  title: `Macbook Pro 16 M1`,
-  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique quis tempor at, aliquam nec ip`
-}))
+// Fetch the skill categories from the API
+const { data: allSections, error: error} = await fetchData<FavouriteSection[]>('/favourite-sections');
 
-const devTools = Array.from({ length: 3 }, (_, i) => ({
-  title: `Sublime Text 4`,
-  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique quis tempor at, aliquam nec ip`
-}))
+const route = useRoute()
 
-const designTools = Array.from({ length: 3 }, (_, i) => ({
-  title: `Affinity designer`,
-  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique quis tempor at, aliquam nec ip`
-}))
+// Fetch the page data from the API
+const { data: pageData, error: pageError} = await fetchItem<PageData>(`/pages/${route.name}`);
 
-const photography = Array.from({ length: 3 }, (_, i) => ({
-  title: `Canon R6 m2`,
-  content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique quis tempor at, aliquam nec ip`
-}))
 
-const allSections = [
-    {
-      title: "My Setup",
-      content: setup
-    },
-    {
-      title: "Dev Tools",
-      content: devTools
-    },
-    {
-      title: "Design Tools",
-      content: designTools
-    },
-    {
-      title: "Photography",
-      content: photography
-    }
-]
 </script>

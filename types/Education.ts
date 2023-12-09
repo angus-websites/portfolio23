@@ -1,10 +1,12 @@
 // Project type
+import {Image} from "~/types/Image";
+
 export type Education = {
   id: number;
-  institution: string;
+  school: string;
   level: string;
   grade?: string;
   start_date: string;
   end_date?: string;
-  logo?: string;
+  icon?: Image;
 };

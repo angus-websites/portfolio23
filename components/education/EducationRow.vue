@@ -4,12 +4,12 @@
       <!-- Logo -->
       <div class="">
         <div class="rounded-full w-10 h-10 border relative overflow-hidden">
-          <img
+          <img v-if="education.icon"
             class="w-full h-full object-cover"
             width="100"
             height="100"
-            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-            alt=""
+            :src="getFullUrl(education.icon.url)"
+            :alt="education.icon.alt"
           />
         </div>
       </div>
@@ -19,7 +19,7 @@
         <div
           class="text-lg text-evening-sea-900 dark:text-zinc-50 font-semibold tracking-tight"
         >
-          {{ education.institution }}
+          {{ education.school }}
         </div>
         <div class="flex flex-wrap justify-between">
           <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
@@ -28,7 +28,7 @@
           </div>
           <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
             {{ convertDateToYear(education.start_date) }} -
-            {{ convertDateToYear(education.end_date, true) }}
+            <span v-if="education.end_date">{{ convertDateToYear(education.end_date, true) }}</span>
           </div>
         </div>
       </div>
@@ -38,10 +38,16 @@
 <script setup lang="ts">
 import { PropType } from "vue";
 import type { Education } from "~/types/Education";
+import {useApiData} from "~/composables/useApiData";
 
 defineProps({
-  education: Object as PropType<Education>,
+  education: {
+    type: Object as PropType<Education>,
+    required: true,
+  }
 });
+
+const {getFullUrl} = useApiData();
 
 // Function to convert date to year only
 function convertDateToYear(date: string, handleNull = false) {

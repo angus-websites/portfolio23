@@ -1,16 +1,17 @@
 <template>
-  <div class="max-w-sm bg-zinc-100 hover:bg-zinc-50 hover:dark:bg-opacity-80  rounded-lg shadow dark:bg-evening-sea-900 dark:bg-opacity-40"
+  <div
+      class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-evening-sea-900 dark:bg-opacity-40 "
+      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 hover:dark:bg-opacity-80'"
   >
-    <NuxtLink
-        :to="`/projects/${project.slug}`"
-    >
-      <div class="">
+    <ProjectLink :project="project">
+      <div class="border-b dark:border-evening-sea-600 dark:border-opacity-20">
         <img
             width="100"
             height="100"
-            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-base-300"
-            src="https://flowbite.com/docs/images/blog/image-1.jpg"
-            alt=""
+            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-base-300 b"
+            :class="project.coming_soon ? 'brightness-50' : ''"
+            :src="getFullUrl(project.images.cover_image.url)"
+            :alt="project.images.cover_image.alt"
         />
       </div>
       <div class="p-5">
@@ -24,33 +25,58 @@
             </h3>
           </div>
           <div>
-            <p class="text-evening-sea-700 dark:text-evening-sea-200">2023</p>
+            <p class="text-zinc-400 dark:text-zinc-300">
+              <span v-if="!project.coming_soon">{{ formatDate(project.date_created) }}</span>
+              <span v-else class="group-hover:text-evening-sea-700 dark:group-hover:text-evening-sea-200">Coming soon</span>
+            </p>
           </div>
         </div>
 
         <!-- Tags -->
-        <div class="flex flex-row justify-start my-5">
-          <div class="mr-2">
-          <span
-              class="px-2 py-1 text-xs rounded-full bg-mulberry-700 bg-opacity-90 dark:bg-mulberry-200 text-mulberry-50 dark:text-mulberry-800"
-          >Technology</span
-          >
+        <div class="flex flex-row justify-start flex-wrap gap-y-3 my-5">
+          <div v-for="tag in projectTags" class="mr-2">
+            <span
+                class="px-2 py-1 text-xs rounded-full bg-mulberry-700 bg-opacity-90 dark:bg-mulberry-200 text-mulberry-50 dark:text-mulberry-800"
+            >{{ tag.value.title }}</span
+            >
           </div>
         </div>
 
         <p class="mt-5 text-sm text-zinc-700 dark:text-zinc-100 opacity-95">
-          A fun drinking game to play with the family
+          {{ project.short_description }}
         </p>
       </div>
-    </NuxtLink>
+    </ProjectLink>
 
   </div>
 </template>
 <script setup lang="ts">
 import { PropType } from "vue";
 import { Project } from "~/types/Project";
+import ProjectLink from "~/components/project/ProjectLink.vue";
+import {useApiData} from "~/composables/useApiData";
 
-defineProps({
-  project: Object as PropType<Project>,
+const props = defineProps({
+  project: {
+    type: Object as PropType<Project>,
+    required: true,
+  },
 });
+
+const {getFullUrl} = useApiData();
+
+
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' });
+}
+
+// Computed property that only gets the first 3 tags, if there are more than 3
+const projectTags = computed(() => {
+  if (props.project.tags.length > 3) {
+    return props.project.tags.slice(0, 3);
+  }
+  return props.project.tags;
+});
+
+
 </script>

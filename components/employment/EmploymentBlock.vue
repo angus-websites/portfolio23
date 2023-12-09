@@ -10,10 +10,20 @@
 
     <template #content>
       <ul v-if="employments" class="grid grid-cols-1 gap-y-8">
-        <li v-for="employment in employments">
+        <li v-if="employments.length > 0" v-for="employment in employments">
           <EmploymentRow
               :key="employment.id"
               :employment="employment" />
+        </li>
+        <li v-else>
+          <EmptyState class="text-center">No employment history to show.</EmptyState>
+        </li>
+      </ul>
+      <ul v-else-if="error">
+        <li>
+          <ErrorState class="text-center">
+            Error fetching employment
+          </ErrorState>
         </li>
       </ul>
       <LoadingAnimation v-else />
@@ -27,10 +37,11 @@ import type { Employment } from "~/types/Employment";
 
 import { useApiData } from '~/composables/useApiData';
 import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
+import ErrorState from "~/components/ErrorState.vue";
 const { fetchData } = useApiData();
 
 // Fetch the skill categories from the API
-const { data: employments} = fetchData<Employment[]>('/employment');
+const { data: employments, error: error} = await fetchData<Employment[]>('/employment');
 
 
 </script>
