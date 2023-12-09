@@ -24,7 +24,6 @@ COPY --from=prerelease /temp/build/package.json .
 COPY --from=prerelease /temp/build/prod.sh start.sh
 
 # Run the app
-USER bun
 EXPOSE 3000/tcp
 
 # Copy our prod script and set permissions
