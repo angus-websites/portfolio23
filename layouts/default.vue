@@ -6,6 +6,8 @@
     >
       <AppHeader />
 
+      {{ apiBaseUrl }}
+
       <!-- Main Content -->
       <main class="content">
         <slot />
@@ -16,6 +18,10 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useRuntimeConfig } from 'nuxt/app';
+
+const config = useRuntimeConfig();
+const apiBaseUrl = config.public.apiBaseUrl;
 
 // TODO
 useSeoMeta({
