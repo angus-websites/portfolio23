@@ -6,7 +6,9 @@
         :subtitle="pageData.subtitle"
       />
     </div>
-    <p v-if="error">Error fetching projects</p>
+    <ErrorState v-if="error" class="text-center">
+      Error fetching projects
+    </ErrorState>
     <ul
       v-else-if="projects"
       class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-20"
@@ -28,6 +30,7 @@
 import type { Project } from "~/types/Project";
 import {useApiData} from "~/composables/useApiData";
 import {PageData} from "~/types/PageData";
+import ErrorState from "~/components/ErrorState.vue";
 
 useHead({
   title: 'Projects - Angus',

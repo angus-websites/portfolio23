@@ -22,9 +22,9 @@
           <EmptyState v-else class="text-center">No favourites to show.</EmptyState>
         </div>
         <div v-else-if="error">
-          <p class="text-center text-red-700 dark:text-red-300">
+          <ErrorState class="text-center">
             Error fetching favourites
-          </p>
+          </ErrorState>
         </div>
         <LoadingAnimation v-else />
       </div>
@@ -40,6 +40,7 @@ import {FavouriteSection} from "~/types/Favourites";
 import { useApiData } from '~/composables/useApiData';
 import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
 import type { PageData } from "~/types/PageData";
+import ErrorState from "~/components/ErrorState.vue";
 
 useHead({
   title: 'About - Angus',

@@ -31,9 +31,9 @@
     </ul>
     <ul v-else-if="error">
       <li>
-        <p class="text-center text-red-700 dark:text-red-300">
+        <ErrorState class="text-center">
           Error fetching skills
-        </p>
+        </ErrorState>
       </li>
     </ul>
     <LoadingAnimation v-else />
@@ -44,6 +44,7 @@ import { SkillCategory } from "~/types/SkillCategory";
 import SkillCard from "~/components/skills/SkillCard.vue";
 import { useApiData } from '~/composables/useApiData';
 import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
+import ErrorState from "~/components/ErrorState.vue";
 const { fetchData } = useApiData();
 
 // Fetch the skill categories from the API

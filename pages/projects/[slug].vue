@@ -9,8 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import {PageData} from "~/types/PageData";
+import {Project} from "~/types/Project";
 import { useApiData } from '~/composables/useApiData';
 
 
@@ -19,7 +18,7 @@ const route = useRoute()
 
 
 // Fetch the page data from the API
-const { data: project } = await fetchItem<PageData>(`/projects/slug/${route.params.slug}`);
+const { data: project } = await fetchItem<Project>(`/projects/slug/${route.params.slug}`);
 
 if (!project.value) {
   throw createError({
