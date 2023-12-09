@@ -1,5 +1,5 @@
 # Use the official Bun image
-FROM oven/bun:latest as base
+FROM oven/bun:slim as base
 WORKDIR /usr/src/app
 
 # Install stage: Install dependencies into temp directory
@@ -15,7 +15,7 @@ COPY --from=install /temp/build/node_modules /temp/build/node_modules
 COPY . /temp/build/
 WORKDIR /temp/build
 ENV NODE_ENV=production
-RUN bun --bun run build
+RUN bun run build
 
 # Release stage: Copy production dependencies and source code into final image
 FROM base AS release
