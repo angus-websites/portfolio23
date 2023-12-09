@@ -34,7 +34,6 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.16",
     "@heroicons/vue": "latest",
-    "dotenv": "^16.3.1",
     "postcss-loader": "^7.3.3",
     "vue-spinner": "^1.0.4"
   }
