@@ -7,7 +7,7 @@ FROM base AS install
 RUN mkdir -p /temp/build
 COPY package.json bun.lockb /temp/build/
 WORKDIR /temp/build
-RUN bun install --frozen-lockfile
+RUN bun install
 
 # Prerelease (build) stage: Copy source code and build in the temp directory
 FROM base AS prerelease
