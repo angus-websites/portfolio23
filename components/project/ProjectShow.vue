@@ -1,6 +1,6 @@
 
 <template>
-  <div class="">
+  <main class="">
     <div v-if="!project.coming_soon" class="mx-auto px-4 pb-16 sm:px-6  lg:max-w-7xl lg:px-8">
       <!-- Breadcrumb -->
       <ProjectBreadcrumb  class="my-5" />
@@ -104,17 +104,16 @@
         </div>
 
         <div v-if="project.long_description" class="mx-auto mt-20 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
-
           <div class="py-5 border-t border-b border-evening-sea-700 border-opacity-30 dark:border-opacity-30">
             <h3 class="sr-only">Project overview</h3>
-            <div class="prose max-w-none prose-polo prose-img:rounded-lg prose-h2:text-lunar-800 dark:prose-h2:text-lunar-300 dark:prose-invert" v-html="project.long_description" />
+            <div class="prose max-w-none prose-polo prose-img:rounded-lg prose-h2:text-lunar-800 dark:prose-h2:text-lunar-300 dark:prose-invert" v-html="convertDescriptionToHtml(project.long_description)" />
           </div>
         </div>
 
       </div>
     </div>
     <div v-else>
-      <main class="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
+      <div class="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
         <div class="text-center">
           <h1 class="mt-4 text-3xl font-bold tracking-tight text-evening-sea-900 dark:text-evening-sea-200 sm:text-5xl">Coming soon</h1>
           <p class="mt-6 text-base leading-7 text-zinc-600 dark:text-zinc-300">
@@ -124,9 +123,9 @@
             <NuxtLink to="/projects" class="rounded-md bg-lunar-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-lunar-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lunar-800">Other projects</NuxtLink>
           </div>
         </div>
-      </main>
+      </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script setup lang="ts">
@@ -134,6 +133,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/vue'
 import {Project} from "~/types/Project.js";
 import {PropType} from "vue";
 import {useApiData} from "~/composables/useApiData";
+import {useSerialize} from "~/composables/useSerialize";
 
 const props = defineProps({
   project: {
@@ -141,8 +141,9 @@ const props = defineProps({
     required: true,
   }
 })
-const {getFullUrl} = useApiData();
 
+const {getFullUrl} = useApiData();
+const {jsonToHtml} = useSerialize();
 
 const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' });
@@ -155,6 +156,11 @@ function hasProjectImages(){
   }
   return false
 }
+
+const convertDescriptionToHtml = (description: object) => {
+  return jsonToHtml(description);
+}
+
 
 
 
