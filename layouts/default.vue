@@ -28,7 +28,11 @@ useHead({
     { rel: 'apple-touch-icon', sizes: "180x180",  href: '/assets/icons/apple-touch-icon.png'},
     { rel: 'mask-icon', href: '/assets/icons/safari-pinned-tab.svg', color: '#5bbad5' },
     { rel: 'manifest', href: '/assets/icons/site.webmanifest' },
-  ]
+  ],
+})
+
+useSeoMeta({
+  ogImage: '/assets/images/og-image.png',
 })
 </script>
 
