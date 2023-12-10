@@ -36,8 +36,8 @@
 
         </div>
 
-        <!-- Product details -->
-        <div class="mx-auto mt-14 max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
+        <!-- Project details -->
+        <div class="mx-auto w-full mt-14 max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
           <div class="flex flex-col-reverse">
             <div class="">
               <h1 class="text-2xl font-bold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-200">{{ project.title }}</h1>
@@ -61,7 +61,7 @@
               Website
             </a>
             <a v-if="project.links.git_link" :href="project.links.git_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-lunar-200 px-8 py-3 text-base font-medium text-lunar-800 hover:bg-lunar-300 focus:outline-none focus:ring-2 focus:ring-lunar-500 focus:ring-offset-2 focus:ring-offset-gray-50">
-              Github
+              <span>GitHub</span>
             </a>
           </div>
 
@@ -69,12 +69,12 @@
             <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Highlights</h3>
             <div class="prose prose-sm mt-4 prose-polo dark:prose-invert">
               <ul role="list">
-                <li v-for="highlight in project.highlights" :key="highlight">{{ highlight }}</li>
+                <li v-for="highlight in project.highlights" :key="highlight.id">{{ highlight.title }}</li>
               </ul>
             </div>
           </div>
 
-          <div class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
+          <div v-if="project.stack" class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
             <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Tech stack</h3>
             <div class="my-10 grid grid-cols-4 gap-5">
               <div v-for="skill in project.stack" class="mx-auto flex flex-col items-center space-y-3">

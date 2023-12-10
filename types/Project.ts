@@ -28,6 +28,11 @@ type ProjectLinks = {
     web_link?: string;
 }
 
+type Highlight = {
+    id: string;
+    title: string;
+}
+
 export type Project = {
   id: number;
   coming_soon: boolean;
@@ -35,13 +40,13 @@ export type Project = {
   title: string;
   short_description: string;
   medium_description?: string;
-  long_description?: string;
+  long_description?: Object;
   images: ProjectImage
   date_created: string;
   links: ProjectLinks
   stack: NestedStackItem[];
   tags: NestedTag[];
-  highlights: string[];
+  highlights: Highlight[];
   meta?: SeoMeta;
 
 };

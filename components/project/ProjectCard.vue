@@ -33,7 +33,7 @@
         </div>
 
         <!-- Tags -->
-        <div class="flex flex-row justify-start flex-wrap gap-y-3 my-5">
+        <div v-if="project.tags" class="flex flex-row justify-start flex-wrap gap-y-3 my-5">
           <div v-for="tag in projectTags" class="mr-2">
             <span
                 class="px-2 py-1 text-xs rounded-full bg-mulberry-700 bg-opacity-90 dark:bg-mulberry-200 text-mulberry-50 dark:text-mulberry-800"
