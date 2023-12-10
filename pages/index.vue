@@ -2,10 +2,7 @@
   <PageContainer>
     <div v-if="pageData" class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <TitleAndSubtitle
-          :title="pageData.title"
-          :subtitle="pageData.subtitle"
-        />
+        <TitleAndSubtitle :title="pageData.tagline" :subtitle="pageData.subtitle" />
       </div>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-10 my-20">

@@ -1,7 +1,7 @@
 <template>
   <PageContainer>
       <div v-if="pageData" class="text-center sm:text-left">
-        <TitleAndSubtitle :title="pageData.title" :subtitle="pageData.subtitle" />
+        <TitleAndSubtitle :title="pageData.tagline" :subtitle="pageData.subtitle" />
       </div>
 
       <!-- Setup -->
