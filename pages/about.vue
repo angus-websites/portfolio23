@@ -33,31 +33,19 @@
 </template>
 
 <script setup lang="ts">
-
-// Generate some dummy setup data
 import TextSection from "~/components/TextSection.vue";
-import {FavouriteSection} from "~/types/Favourites";
-import { useApiData } from '~/composables/useApiData';
 import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
-import type { PageData } from "~/types/PageData";
 import ErrorState from "~/components/ErrorState.vue";
+import {FavouriteSection} from "~/types/Favourites";
+import {usePageSetup} from "~/composables/usePageSetup";
+import {useApiData} from "~/composables/useApiData";
 
-useHead({
-  title: 'About - Angus',
-  meta: [
-    { name: 'description', content: 'About description' }
-  ]
-})
+const { fetchData} = useApiData();
+const { setupPageHead } = usePageSetup();
 
-const { fetchData, fetchItem } = useApiData();
-
-// Fetch the skill categories from the API
 const { data: allSections, error: error} = await fetchData<FavouriteSection[]>('/favourite-sections');
 
-const route = useRoute()
 
-// Fetch the page data from the API
-const { data: pageData, error: pageError} = await fetchItem<PageData>(`/pages/${route.name}`);
-
+setupPageHead("About - Angus", "Find out more about Angus");
 
 </script>
