@@ -13,7 +13,7 @@ import {Project} from "~/types/Project";
 import { useApiData } from '~/composables/useApiData';
 
 
-const { fetchItem } = useApiData();
+const { fetchItem, getFullUrl } = useApiData();
 const route = useRoute()
 
 
@@ -28,8 +28,27 @@ if (!project.value) {
 }
 
 
+// get the meta image url
+const metaImageUrl = project.value.meta?.image ? getFullUrl(project.value.meta.image.url) : null
+
+// TODO handle blank strings
+// Set SEO meta tags if the project has meta properties
+if (project.value.meta) {
+  useSeoMeta({
+    ogTitle: project.value.meta.title ?? project.value.title,
+    ogDescription: project.value.short_description ?? "[og:description]",
+    ogImage: metaImageUrl ?? "[og:image]",
+  })
+}
+
 useHead({
   title: project.value.title,
+  meta: [
+    { name: 'title', content: project.value.meta?.title ?? project.value.title },
+    { name: 'description', content: project.value.meta?.description ?? project.value.short_description },
+  ],
 })
+
+
 
 </script>
