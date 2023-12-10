@@ -11,23 +11,27 @@ export function usePageSetup(){
         // Attempt to fetch page data
         const { data: pageData, error: pageError } = await fetchItem<PageData>(`/pages/${route.name}`);
 
-        if (pageData.value) {
+        if (pageData){
             return pageData.value.title
         }
-
-
     }
 
-    function dummyFunction() {
-        const title = getPageTitle()
+    function setupPageHead(defaultTitle: string, defaultDescription: string) {
+
+        // Get page data
+        const pageData = getPageTitle();
+
         useHead({
-            title: title
-        })
+            title: pageData,
+
+        });
+
+
+
     }
 
     return {
-        getPageTitle,
-        dummyFunction
+        setupPageHead
     };
 
 }
