@@ -33,7 +33,7 @@ export function usePageSetup(){
         useHead({
             title: title,
             meta: [
-                { name: 'title', content: checkBlankString(pageData.meta?.title ?? "", defaultTitle) },
+                { name: 'title', content: checkBlankString(pageData.meta?.title ?? "", title) },
                 { name: 'description', content: description }
             ],
         });

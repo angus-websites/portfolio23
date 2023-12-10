@@ -16,7 +16,10 @@
   </div>
 </template>
 <script setup lang="ts">
+import {useRuntimeConfig} from "nuxt/app";
 
+const config = useRuntimeConfig();
+const hostUrl = config.public.hostUrl;
 
 useHead({
   htmlAttrs: {
@@ -28,6 +31,17 @@ useHead({
     { rel: 'apple-touch-icon', sizes: "180x180",  href: '/assets/icons/apple-touch-icon.png'},
     { rel: 'mask-icon', href: '/assets/icons/safari-pinned-tab.svg', color: '#5bbad5' },
     { rel: 'manifest', href: '/assets/icons/site.webmanifest' },
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Angus Goody",
+        "url": hostUrl
+      }),
+    }
   ],
 })
 
