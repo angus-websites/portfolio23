@@ -4,25 +4,22 @@ import {PageData} from "~/types/PageData";
 export function usePageSetup(){
     const { fetchItem, getFullUrl } = useApiData();
 
-    async function getPageTitle (): Promise<{pageData: any, pageError: any}> {
+    async function fetchPageData (): Promise<{pageData: any, pageError: any}> {
 
         const route = useRoute()
 
         // Attempt to fetch page data
         const { data: pageData, error: pageError } = await fetchItem<PageData>(`/pages/${route.name}`);
 
-        if (pageData){
-            return pageData.value
-        }
+        return {pageData, pageError}
     }
 
-    function setupPageHead(defaultTitle: string, defaultDescription: string) {
+    function setupPageHead(pageData, defaultTitle: string, defaultDescription: string) {
 
-        // Get page data
-        const pageData = getPageTitle();
+        const title = pageData.title || defaultTitle;
 
         useHead({
-            title: pageData.title,
+            title: title,
 
         });
 
@@ -31,7 +28,8 @@ export function usePageSetup(){
     }
 
     return {
-        setupPageHead
+        setupPageHead,
+        fetchPageData
     };
 
 }

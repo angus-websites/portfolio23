@@ -41,12 +41,15 @@ import {usePageSetup} from "~/composables/usePageSetup";
 import {useApiData} from "~/composables/useApiData";
 
 const { fetchData} = useApiData();
-const { setupPageHead } = usePageSetup();
+const { setupPageHead, fetchPageData } = usePageSetup();
 
 // Fetch about content
 const { data: allSections, error: error} = await fetchData<FavouriteSection[]>('/favourite-sections');
 
+// Fetch page content
+const {pageData} = await fetchPageData();
+
 // Set SEO and meta tags
-setupPageHead("About - Angus", "Find out more about Angus")
+setupPageHead(pageData.value,"About - Angus", "Find out more about Angus")
 
 </script>
