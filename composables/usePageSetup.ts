@@ -12,7 +12,7 @@ export function usePageSetup(){
         const { data: pageData, error: pageError } = await fetchItem<PageData>(`/pages/${route.name}`);
 
         if (pageData){
-            return pageData.value.title
+            return pageData.value
         }
     }
 
@@ -22,7 +22,7 @@ export function usePageSetup(){
         const pageData = getPageTitle();
 
         useHead({
-            title: pageData,
+            title: pageData.title,
 
         });
 
