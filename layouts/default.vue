@@ -6,8 +6,6 @@
     >
       <AppHeader />
 
-      {{ apiBaseUrl }}
-
       <!-- Main Content -->
       <main class="content">
         <slot />
@@ -18,10 +16,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import { useRuntimeConfig } from 'nuxt/app';
-
-const config = useRuntimeConfig();
-const apiBaseUrl = config.public.apiBaseUrl;
 
 // TODO
 useSeoMeta({
@@ -42,11 +36,11 @@ useHead({
     lang: 'en'
   },
   link: [
-    {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.png'
-    }
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/assets/icons/favicon-16x16.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/assets/icons/favicon-32x32.png' },
+    { rel: 'apple-touch-icon', sizes: "180x180",  href: '/assets/icons/apple-touch-icon.png'},
+    { rel: 'mask-icon', href: '/assets/icons/safari-pinned-tab.svg', color: '#5bbad5' },
+    { rel: 'manifest', href: '/assets/icons/site.webmanifest' },
   ]
 })
 </script>
