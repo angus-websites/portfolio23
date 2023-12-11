@@ -2,10 +2,7 @@
   <PageContainer>
     <div v-if="pageData" class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <TitleAndSubtitle
-          :title="pageData.title"
-          :subtitle="pageData.subtitle"
-        />
+        <TitleAndSubtitle :title="pageData.tagline" :subtitle="pageData.subtitle" />
       </div>
     </div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-10 my-20">
@@ -22,22 +19,16 @@
 </template>
 <script setup lang="ts">
 
-import {useApiData} from "~/composables/useApiData";
-import type { PageData } from "~/types/PageData";
+import {usePageSetup} from "~/composables/usePageSetup";
 
-useHead({
-  title: 'Home - Angus',
-  meta: [
-    { name: 'description', content: 'Portfolio description' }
-  ]
-})
-
-const { fetchItem } = useApiData();
-
-const route = useRoute()
+const { setupPageHead, fetchPageData } = usePageSetup();
 
 
-// Fetch the page data from the API
-const { data: pageData, error: pageError} = await fetchItem<PageData>(`/pages/${route.name}`);
+// Fetch page content
+const {pageData, pageError} = await fetchPageData();
+
+// Set SEO and meta tags
+setupPageHead(pageData.value, pageError,"Home - Angus", "Find out more about Angus")
+
 
 </script>

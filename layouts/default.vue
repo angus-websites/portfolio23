@@ -1,8 +1,8 @@
 <template>
   <!-- Angus was here 2023 -->
-  <div class="bg-[#DDE2E6] dark:bg-evening-sea-bg-2 font-sans">
+  <div class="font-sans bg-paper dark:bg-gradient-to-b  dark:from-ninja-500 dark:to-ninja-600">
     <div
-      class="body max-w-7xl mx-auto bg-[#EAEEF1] dark:bg-evening-sea-bg text-[#161616] dark:text-[#D3D3D3]"
+      class="body max-w-7xl mx-auto text-[#161616] dark:text-[#D3D3D3]"
     >
       <AppHeader />
 
@@ -16,32 +16,37 @@
   </div>
 </template>
 <script setup lang="ts">
+import {useRuntimeConfig} from "nuxt/app";
 
-// TODO
-useSeoMeta({
-  title: '[title]',
-  description: '[description]',
-  ogTitle: '[og:title]',
-  ogDescription: '[og:description]',
-  ogImage: '[og:image]',
-  ogUrl: '[og:url]',
-  twitterTitle: '[twitter:title]',
-  twitterDescription: '[twitter:description]',
-  twitterImage: '[twitter:image]',
-  twitterCard: 'summary'
-})
+const config = useRuntimeConfig();
+const hostUrl = config.public.hostUrl;
 
 useHead({
   htmlAttrs: {
     lang: 'en'
   },
   link: [
+    { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/assets/icons/favicon-16x16.png' },
+    { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/assets/icons/favicon-32x32.png' },
+    { rel: 'apple-touch-icon', sizes: "180x180",  href: '/assets/icons/apple-touch-icon.png'},
+    { rel: 'mask-icon', href: '/assets/icons/safari-pinned-tab.svg', color: '#5bbad5' },
+    { rel: 'manifest', href: '/assets/icons/site.webmanifest' },
+  ],
+  script: [
     {
-      rel: 'icon',
-      type: 'image/png',
-      href: '/favicon.png'
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Angus Goody",
+        "url": hostUrl
+      }),
     }
-  ]
+  ],
+})
+
+useSeoMeta({
+  ogImage: '/assets/images/og-image.png',
 })
 </script>
 

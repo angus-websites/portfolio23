@@ -11,7 +11,9 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
+      // To override, set the environment variable NUXT_PUBLIC_API_BASE_URL
       apiBaseUrl: process.env.API_BASE_URL || 'http://localhost:1337/api',
+      hostUrl: process.env.HOST_URL || 'http://localhost:3000',
     }
   },
 });

@@ -5,13 +5,12 @@
 
       <li v-if="categories.length > 0" v-for="category in categories" :key="category.id">
 
-        <div class="relative mb-10">
-          <div class="absolute inset-0 flex items-center" aria-hidden="true">
-            <div class="w-full border-t border-gray-300 dark:border-evening-sea-700 dark:border-opacity-20" />
+        <div class="relative mb-10 flex flex-row items-center">
+          <div class="w-full flex-1 border-t border-gray-300 dark:border-evening-sea-700 dark:border-opacity-20" />
+          <div class="">
+            <h3 class="px-2 text-sm text-gray-500 dark:text-evening-sea-100">{{  category.title  }}</h3>
           </div>
-          <div class="relative flex justify-center">
-            <h3 class="bg-[#EAEEF1] dark:bg-evening-sea-bg px-2 text-sm text-gray-500 dark:text-evening-sea-100">{{  category.title  }}</h3>
-          </div>
+          <div class="w-full flex-1 border-t border-gray-300 dark:border-evening-sea-700 dark:border-opacity-20" />
         </div>
 
         <ul class="grid grid-cols-3 sm:grid-cols-4 gap-4">

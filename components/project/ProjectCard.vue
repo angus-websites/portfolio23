@@ -1,7 +1,7 @@
 <template>
   <div
       class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-evening-sea-900 dark:bg-opacity-40 "
-      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 hover:dark:bg-opacity-80'"
+      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 hover:dark:bg-opacity-60'"
   >
     <ProjectLink :project="project">
       <div class="border-b dark:border-evening-sea-600 dark:border-opacity-20">
@@ -33,7 +33,7 @@
         </div>
 
         <!-- Tags -->
-        <div class="flex flex-row justify-start flex-wrap gap-y-3 my-5">
+        <div v-if="project.tags" class="flex flex-row justify-start flex-wrap gap-y-3 my-5">
           <div v-for="tag in projectTags" class="mr-2">
             <span
                 class="px-2 py-1 text-xs rounded-full bg-mulberry-700 bg-opacity-90 dark:bg-mulberry-200 text-mulberry-50 dark:text-mulberry-800"

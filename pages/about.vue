@@ -1,12 +1,12 @@
 <template>
   <PageContainer>
       <div v-if="pageData" class="text-center sm:text-left">
-        <TitleAndSubtitle :title="pageData.title" :subtitle="pageData.subtitle" />
+        <TitleAndSubtitle :title="pageData.tagline" :subtitle="pageData.subtitle" />
       </div>
 
       <!-- Setup -->
       <div class="my-20">
-        <div v-if="allSections" class="grid grid-cols-1 gap-y-20">
+        <div v-if="allSections && !error" class="grid grid-cols-1 gap-y-20">
           <AboutShell v-if="allSections.length > 0" v-for="section in allSections" :key="section.id">
             <template #title>
               {{  section.title }}
@@ -33,31 +33,23 @@
 </template>
 
 <script setup lang="ts">
-
-// Generate some dummy setup data
 import TextSection from "~/components/TextSection.vue";
-import {FavouriteSection} from "~/types/Favourites";
-import { useApiData } from '~/composables/useApiData';
 import LoadingAnimation from "~/components/loading/LoadingAnimation.vue";
-import type { PageData } from "~/types/PageData";
 import ErrorState from "~/components/ErrorState.vue";
+import {FavouriteSection} from "~/types/Favourites";
+import {usePageSetup} from "~/composables/usePageSetup";
+import {useApiData} from "~/composables/useApiData";
 
-useHead({
-  title: 'About - Angus',
-  meta: [
-    { name: 'description', content: 'About description' }
-  ]
-})
+const { fetchData} = useApiData();
+const { setupPageHead, fetchPageData } = usePageSetup();
 
-const { fetchData, fetchItem } = useApiData();
-
-// Fetch the skill categories from the API
+// Fetch about content
 const { data: allSections, error: error} = await fetchData<FavouriteSection[]>('/favourite-sections');
 
-const route = useRoute()
+// Fetch page content
+const {pageData, pageError} = await fetchPageData();
 
-// Fetch the page data from the API
-const { data: pageData, error: pageError} = await fetchItem<PageData>(`/pages/${route.name}`);
-
+// Set SEO and meta tags
+setupPageHead(pageData.value, pageError,"About - Angus", "Find out more about Angus")
 
 </script>

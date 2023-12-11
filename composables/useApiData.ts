@@ -1,6 +1,7 @@
 import { useFetch, useRuntimeConfig } from 'nuxt/app';
 
 export function useApiData<T = any>() {
+
     const config = useRuntimeConfig();
     const apiBaseUrl = config.public.apiBaseUrl;
 

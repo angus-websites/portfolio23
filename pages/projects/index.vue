@@ -1,10 +1,7 @@
 <template>
   <PageContainer>
     <div v-if="pageData" class="text-center sm:text-left">
-      <TitleAndSubtitle
-        :title="pageData.title"
-        :subtitle="pageData.subtitle"
-      />
+      <TitleAndSubtitle :title="pageData.tagline" :subtitle="pageData.subtitle" />
     </div>
     <ErrorState v-if="error" class="text-center">
       Error fetching projects
@@ -29,24 +26,23 @@
 <script lang="ts" setup>
 import type { Project } from "~/types/Project";
 import {useApiData} from "~/composables/useApiData";
-import {PageData} from "~/types/PageData";
+import {usePageSetup} from "~/composables/usePageSetup";
 import ErrorState from "~/components/ErrorState.vue";
 
-useHead({
-  title: 'Projects - Angus',
-  meta: [
-    { name: 'description', content: 'Portfolio description' }
-  ]
-})
+const { fetchData } = useApiData();
+const { setupPageHead, fetchPageData } = usePageSetup();
 
-const { fetchItem, fetchData } = useApiData();
-
-const route = useRoute()
 
 const { data: projects, error: error} = await fetchData<Project[]>('/projects');
 
-// Fetch the page data from the API
-const { data: pageData, error: pageError} = await fetchItem<PageData>(`/pages/${route.name}`);
+// Fetch page content
+const {pageData, pageError} = await fetchPageData();
+
+// Set SEO and meta tags
+setupPageHead(pageData.value, pageError,"Projects - Angus", "View the most recent projects Angus has worked on")
+
+
+
 
 
 
