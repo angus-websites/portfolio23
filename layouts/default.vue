@@ -1,8 +1,8 @@
 <template>
   <!-- Angus was here 2023 -->
-  <div class="font-sans bg-[#E3E9EE] dark:bg-gradient-to-r  dark:from-ninja-600 dark:via-ninja-500 dark:to-ninja-600">
+  <div class="font-sans bg-[#E3E9EE] dark:bg-[#182220]">
     <div
-      class="body max-w-7xl mx-auto bg-paper dark:bg-[#1B1B1B] text-[#161616] dark:text-[#D3D3D3]"
+      class="body max-w-7xl mx-auto bg-paper dark:bg-[#121C1B] text-[#172119] dark:text-[#D3D3D3]"
     >
       <AppHeader />
 
