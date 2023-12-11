@@ -1,5 +1,5 @@
 <template>
-  <section class="p-5 rounded-xl bg-zinc-50 dark:bg-evening-sea-900/40">
+  <section class="p-5 rounded-xl bg-zinc-50 dark:bg-evening-sea-900/40 shadow">
 
     <!-- Top row -->
     <div class="flex flex-row items-center justify-start">

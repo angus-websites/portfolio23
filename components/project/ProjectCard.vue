@@ -1,7 +1,7 @@
 <template>
   <div
       class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-evening-sea-900 dark:bg-opacity-40 "
-      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 hover:dark:bg-opacity-80'"
+      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 hover:dark:bg-opacity-60'"
   >
     <ProjectLink :project="project">
       <div class="border-b dark:border-evening-sea-600 dark:border-opacity-20">
