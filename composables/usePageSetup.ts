@@ -1,6 +1,7 @@
 import {useApiData} from "~/composables/useApiData";
 import {PageData} from "~/types/PageData";
 import {useUtils} from "~/composables/useUtils";
+import {FetchError} from "ofetch";
 
 export function usePageSetup(){
     const { fetchItem, getFullUrl } = useApiData();
@@ -16,24 +17,27 @@ export function usePageSetup(){
         return {pageData, pageError}
     }
 
-    function setupPageHead(pageData, defaultTitle: string, defaultDescription: string) {
+    function setupPageHead(pageData: PageData, pageError: FetchError, defaultTitle: string, defaultDescription: string) {
 
-        const title = checkBlankString(pageData.title, defaultTitle);
-        const description = checkBlankString(pageData.meta?.description ?? "", defaultDescription);
-        const metaImageUrl = pageData.meta?.image ? getFullUrl(pageData.meta.image.url) : null;
 
-        // Set SEO meta tags
-        useSeoMeta({
-            ogTitle: checkBlankString(pageData.meta.title, title),
-            ogDescription: description,
-            ogImage: metaImageUrl,
-        });
+        const title = checkBlankString(pageData?.title ?? "", defaultTitle);
+        const description = checkBlankString(pageData?.meta?.description ?? "", defaultDescription);
+        const metaImageUrl = pageData?.meta?.image ? getFullUrl(pageData.meta.image.url) : null;
+
+        if (!pageError) {
+            // Set SEO meta tags
+            useSeoMeta({
+                ogTitle: checkBlankString(pageData?.meta?.title ?? "", title),
+                ogDescription: description,
+                ogImage: metaImageUrl,
+            });
+        }
 
         // Set standard meta tags
         useHead({
             title: title,
             meta: [
-                { name: 'title', content: checkBlankString(pageData.meta?.title ?? "", title) },
+                { name: 'title', content: checkBlankString(pageData?.meta?.title ?? "", title) },
                 { name: 'description', content: description }
             ],
         });

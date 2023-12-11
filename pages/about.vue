@@ -6,7 +6,7 @@
 
       <!-- Setup -->
       <div class="my-20">
-        <div v-if="allSections" class="grid grid-cols-1 gap-y-20">
+        <div v-if="allSections && !error" class="grid grid-cols-1 gap-y-20">
           <AboutShell v-if="allSections.length > 0" v-for="section in allSections" :key="section.id">
             <template #title>
               {{  section.title }}
@@ -47,9 +47,9 @@ const { setupPageHead, fetchPageData } = usePageSetup();
 const { data: allSections, error: error} = await fetchData<FavouriteSection[]>('/favourite-sections');
 
 // Fetch page content
-const {pageData} = await fetchPageData();
+const {pageData, pageError} = await fetchPageData();
 
 // Set SEO and meta tags
-setupPageHead(pageData.value,"About - Angus", "Find out more about Angus")
+setupPageHead(pageData.value, pageError,"About - Angus", "Find out more about Angus")
 
 </script>
