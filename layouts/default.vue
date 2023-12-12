@@ -1,6 +1,6 @@
 <template>
   <!-- Angus was here 2023 -->
-  <div class="font-sans bg-paper-dark dark:bg-gradient-to-r dark:from-ninja-dark dark:via-ninja dark:to-ninja-dark ">
+  <div class="font-sans bg-paper-dark dark:bg-ninja-dark ">
     <div
       class="body max-w-7xl mx-auto dark:bg-ninja bg-paper text-[#172119] dark:text-[#D3D3D3]"
     >
