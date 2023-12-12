@@ -4,7 +4,7 @@
       :class="project.coming_soon ? '' : ' hover:bg-zinc-50 dark:hover:bg-evening-sea-900/60'"
   >
     <ProjectLink :project="project">
-      <div class="border-b dark:border-evening-sea-600 dark:border-opacity-20">
+      <div class="border-b dark:border-evening-sea-600/10">
         <img
             width="100"
             height="100"
