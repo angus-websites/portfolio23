@@ -5,7 +5,7 @@
   >
     <div class="grid max-w-3xl grid-cols-1 items-baseline gap-y-8 md:grid-cols-4">
       <h2
-          class="text-lg font-semibold text-lunar-700 dark:text-lunar-200"
+          class="text-lg font-semibold text-lunar-700 dark:text-lunar-300"
       >
         <slot name="title"></slot>
       </h2>
