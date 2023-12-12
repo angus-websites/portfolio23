@@ -32,7 +32,7 @@
           leave-active-class="transition duration-150 ease-in"
           leave-from-class="translate-y-0 opacity-100"
           leave-to-class="translate-y-1 opacity-0">
-        <PopoverOverlay class="fixed inset-0 z-50 bg-zinc-800/40 backdrop-blur-sm dark:bg-black/50" />
+        <PopoverOverlay class="fixed inset-0 z-50 bg-zinc-800/50 backdrop-blur dark:bg-black/60" />
 
       </transition>
 
@@ -46,22 +46,29 @@
       >
         <PopoverPanel
             v-slot="{ close }"
-            class="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-5 ring-1 ring-zinc-900/5 dark:bg-evening-sea-bg-2 dark:ring-evening-sea-900/50"
+            class="fixed inset-x-4 top-8 z-50 origin-top rounded-3xl bg-white p-5 dark:bg-ninja-light bg-opacity-90 dark:ring-ninja/50"
         >
 
-          <div class="flex flex-row-reverse items-center justify-between">
+          <div class="flex flex-row-reverse gap-x-5 items-center justify-between">
+
             <PopoverButton
                 aria-label="Close menu"
                 type="button"
-                class="inline-flex items-center  p-1 w-10 h-10 justify-center text-sm rounded-lg md:hidden bg-mulberry-200/40 dark:bg-mulberry-500/50 hover:bg-mulberry-200/80 dark:hover:bg-mulberry-800/80 text-mulberry-700 dark:text-mulberry-200 focus:outline-none focus:ring-2 focus:ring-mulberry-800/40 dark:focus:ring-mulberry-300/60   "
+                class="inline-flex items-center w-full  p-1 sm:w-10 h-10 justify-center text-sm rounded-lg md:hidden bg-mulberry-200/80 dark:bg-mulberry-500/50 hover:bg-mulberry-300/80 dark:hover:bg-mulberry-800/80 text-mulberry-700 dark:text-mulberry-200 focus:outline-none focus:ring-2 focus:ring-mulberry-800/40 dark:focus:ring-mulberry-300/60   "
                 aria-controls="navbar-cta"
                 aria-expanded="false"
             >
               <span class="sr-only">Open main menu</span>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden sm:block">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
               </svg>
+              <span class="sm:hidden">Close</span>
             </PopoverButton>
+
+            <div class="hidden sm:flex">
+              <p class="p-1 px-2 rounded w-full  h-10 text-lg leading-8 dark:text-evening-sea-100 text-evening-sea-800">Menu</p>
+            </div>
+
 
           </div>
           <div class="py-4">
@@ -70,7 +77,7 @@
                       :to="item.href"
                       :key="item.id"
                       :class="[
-                        item.current ? 'bg-evening-sea-600 dark:bg-evening-sea-400/60 focus:ring-evening-sea-500/50' : 'bg-lunar-100 dark:bg-evening-sea-100/10 dark:hover:bg-evening-sea-100/20  hover:bg-lunar-200/80 focus:ring-lunar-800/50 dark:focus:ring-zinc-100/50',
+                        item.current ? 'bg-evening-sea-600 dark:bg-evening-sea-400/60 focus:ring-evening-sea-500/50' : 'bg-lunar-200 dark:bg-evening-sea-100/10 dark:hover:bg-evening-sea-100/20  hover:bg-lunar-300/80 focus:ring-lunar-800/50 dark:focus:ring-evening-sea-200/40',
                         'group my-2 relative flex items-center gap-x-6 rounded-lg p-4  focus:outline-none focus:ring-2 '
                       ]">
               <div :class="[

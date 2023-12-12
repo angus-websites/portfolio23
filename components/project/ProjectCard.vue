@@ -1,14 +1,14 @@
 <template>
   <div
-      class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-evening-sea-900 dark:bg-opacity-40 "
-      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 hover:dark:bg-opacity-60'"
+      class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-evening-sea-900/40"
+      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 dark:hover:bg-evening-sea-900/60'"
   >
     <ProjectLink :project="project">
-      <div class="border-b dark:border-evening-sea-600 dark:border-opacity-20">
+      <div class="border-b dark:border-evening-sea-600/10">
         <img
             width="100"
             height="100"
-            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-base-300 b"
+            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-zinc-50  dark:bg-evening-sea-900/20"
             :class="project.coming_soon ? 'brightness-50' : ''"
             :src="getFullUrl(project.images.cover_image.url)"
             :alt="project.images.cover_image.alt"
@@ -25,7 +25,7 @@
             </h3>
           </div>
           <div>
-            <p class="text-zinc-400 dark:text-zinc-300">
+            <p class="text-lunar-800/80 dark:text-lunar-200/70">
               <span v-if="!project.coming_soon">{{ formatDate(project.date_created) }}</span>
               <span v-else class="group-hover:text-evening-sea-700 dark:group-hover:text-evening-sea-200">Coming soon</span>
             </p>

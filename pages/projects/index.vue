@@ -8,11 +8,12 @@
     </ErrorState>
     <ul
       v-else-if="projects"
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 my-20"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-3 my-20"
     >
-      <li v-if="projects.length > 0" v-for="project in projects" class="mx-auto sm:mx-0">
+      <li v-if="projects.length > 0" v-for="project in projects" class="w-full">
           <span class="sr-only">{{project.title}}</span>
           <ProjectCard
+              class="mx-auto"
               :key="project.id"
               :project="project"
                />
