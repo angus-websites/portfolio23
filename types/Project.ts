@@ -41,6 +41,7 @@ export type Project = {
   short_description: string;
   medium_description?: string;
   long_description?: Object;
+  long_description_html?: string;
   images: ProjectImage
   date_created: string;
   links: ProjectLinks
