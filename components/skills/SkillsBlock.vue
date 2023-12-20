@@ -6,11 +6,11 @@
       <li v-if="categories.length > 0" v-for="category in categories" :key="category.id">
 
         <div class="relative mb-10 flex flex-row items-center">
-          <div class="w-full flex-1 border-t border-gray-300 dark:border-evening-sea-700 dark:border-opacity-20" />
+          <div class="w-full flex-1 border-t border-gray-300 dark:border-lunar-600/20" />
           <div class="">
-            <h3 class="px-2 text-sm text-gray-500 dark:text-evening-sea-100">{{  category.title  }}</h3>
+            <h3 class="px-2 text-sm text-gray-500 dark:text-evening-sea-200">{{  category.title  }}</h3>
           </div>
-          <div class="w-full flex-1 border-t border-gray-300 dark:border-evening-sea-700 dark:border-opacity-20" />
+          <div class="w-full flex-1 border-t border-gray-300 dark:border-lunar-600/20" />
         </div>
 
         <ul class="grid grid-cols-3 sm:grid-cols-4 gap-4">

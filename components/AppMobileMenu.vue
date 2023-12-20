@@ -54,7 +54,7 @@
             <PopoverButton
                 aria-label="Close menu"
                 type="button"
-                class="inline-flex items-center w-full  p-1 sm:w-10 h-10 justify-center text-sm rounded-lg md:hidden bg-mulberry-200/80 dark:bg-mulberry-500/50 hover:bg-mulberry-300/80 dark:hover:bg-mulberry-800/80 text-mulberry-700 dark:text-mulberry-200 focus:outline-none focus:ring-2 focus:ring-mulberry-800/40 dark:focus:ring-mulberry-300/60   "
+                class="inline-flex items-center w-full  p-1 sm:w-10 h-10 justify-center text-sm rounded-lg md:hidden bg-mulberry-200 dark:bg-mulberry-500/50 hover:bg-mulberry-300/80 dark:hover:bg-mulberry-800/80 text-mulberry-800 dark:text-mulberry-200 focus:outline-none focus:ring-2 focus:ring-mulberry-800/40 dark:focus:ring-mulberry-300/60   "
                 aria-controls="navbar-cta"
                 aria-expanded="false"
             >
@@ -81,14 +81,14 @@
                         'group my-2 relative flex items-center gap-x-6 rounded-lg p-4  focus:outline-none focus:ring-2 '
                       ]">
               <div :class="[
-                        item.current ? '' : 'dark:bg-inherit dark:group-hover:bg-white/70',
+                        item.current ? '' : 'dark:bg-inherit ',
                         'mt-1 flex h-11 w-11 flex-none bg-white items-center justify-center rounded-lg'
                       ]"
               >
                 <component
                     :is="item.icon"
                     :class="[
-                        item.current ? 'dark:text-evening-sea-700' : 'group-hover:text-evening-sea-600 dark:group-hover:text-evening-sea-800 ',
+                        item.current ? 'dark:text-evening-sea-700' : '',
                         'h-6 w-6 text-evening-sea-800 dark:text-evening-sea-200/70'
                      ]"
                     aria-hidden="true" />

@@ -39,9 +39,9 @@ export default {
           dark: "#DEE3E8",
         },
         "ninja": {
-          DEFAULT: "#0F172B",
-          dark: "#010424",
-          light: "#052535e8"
+          DEFAULT: "#171923",
+          dark: "#12141C",
+          light: "#1B1D27"
 
         },
         'mulberry': {

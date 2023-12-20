@@ -1,14 +1,14 @@
 <template>
   <div
-      class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-evening-sea-900/40"
-      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 dark:hover:bg-evening-sea-900/60'"
+      class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-lunar-900/40 flex flex-col h-full"
+      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 dark:hover:bg-lunar-900/60'"
   >
-    <ProjectLink :project="project">
-      <div class="border-b dark:border-evening-sea-600/10">
+    <ProjectLink :project="project" class="flex-1">
+      <div class="border-b dark:border-lunar-800/20">
         <img
             width="100"
             height="100"
-            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-zinc-50  dark:bg-evening-sea-900/20"
+            class="rounded-t-lg lg:h-48 md:h-36 w-full object-cover object-center bg-zinc-50  dark:bg-zinc-900/40"
             :class="project.coming_soon ? 'brightness-50' : ''"
             :src="getFullUrl(project.images.cover_image.url)"
             :alt="project.images.cover_image.alt"

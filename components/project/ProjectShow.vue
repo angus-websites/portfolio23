@@ -65,7 +65,7 @@
             </a>
           </div>
 
-          <div v-if="project.highlights" class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
+          <div v-if="project.highlights" class="mt-10 border-t border-zinc-300 dark:border-lunar-600/20 pt-10">
             <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Highlights</h3>
             <div class="prose prose-sm mt-4 prose-polo dark:prose-invert">
               <ul role="list">
@@ -74,7 +74,7 @@
             </div>
           </div>
 
-          <div v-if="project.stack" class="mt-10 border-t border-zinc-300 dark:border-evening-sea-500 dark:border-opacity-20 pt-10">
+          <div v-if="project.stack" class="mt-10 border-t border-zinc-300  dark:border-lunar-600/20 pt-10">
             <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Tech stack</h3>
             <div class="my-10 grid grid-cols-4 gap-5">
               <div v-for="skill in project.stack" class="mx-auto flex flex-col items-center space-y-3">
@@ -104,9 +104,9 @@
         </div>
 
         <div v-if="project.long_description" class="mx-auto mt-20 w-full max-w-2xl lg:col-span-4 lg:mt-0 lg:max-w-none">
-          <div class="py-5 border-t border-b border-evening-sea-700 border-opacity-30 dark:border-opacity-30">
+          <div class="py-5 border-t border-b border-lunar-700/40  dark:border-lunar-600/20">
             <h3 class="sr-only">Project overview</h3>
-            <div class="prose max-w-none prose-polo prose-img:rounded-lg prose-h2:text-lunar-800 dark:prose-h2:text-lunar-300 dark:prose-invert" v-html="convertDescriptionToHtml(project.long_description)" />
+            <div class="prose max-w-none prose-polo prose-img:rounded-lg prose-h2:text-lunar-800 dark:prose-h2:text-lunar-300 dark:prose-invert" v-html="project.long_description_html" />
           </div>
         </div>
 
@@ -157,9 +157,6 @@ function hasProjectImages(){
   return false
 }
 
-const convertDescriptionToHtml = (description: object) => {
-  return jsonToHtml(description);
-}
 
 
 

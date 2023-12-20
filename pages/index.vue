@@ -11,7 +11,7 @@
     </div>
 
     <div class="text-center my-28">
-      <h2 class="h2 text-lunar-800 dark:text-lunar-100">My skills</h2>
+      <h2 class="h2 text-lunar-800 dark:text-lunar-300">My skills</h2>
 
       <SkillsBlock class="mt-20" />
     </div>
