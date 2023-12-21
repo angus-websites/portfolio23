@@ -1,6 +1,6 @@
-# Nuxt 3 Minimal Starter
+# Portfolio 2023
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A portfolio site built in [Nuxt.js](https://nuxtjs.org) and [Tailwind CSS](https://tailwindcss.com).
 
 ## Setup
 
