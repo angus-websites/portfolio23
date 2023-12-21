@@ -75,7 +75,7 @@ export default {
       typography: ({ theme }) => ({
         polo: {
           css: {
-            '--tw-prose-body': theme('colors.zinc[800]'),
+            '--tw-prose-body': theme('colors.zinc[700]'),
             '--tw-prose-headings': theme('colors.evening-sea[900]'),
             '--tw-prose-lead': theme('colors.zinc[700]'),
             '--tw-prose-links': theme('colors.lunar[700]'),

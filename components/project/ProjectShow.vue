@@ -40,7 +40,7 @@
         <div class="mx-auto w-full mt-14 max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
           <div class="flex flex-col-reverse">
             <div class="">
-              <h1 class="text-2xl font-bold tracking-tight sm:text-3xl text-zinc-900 dark:text-zinc-200">{{ project.title }}</h1>
+              <h1 class="text-2xl font-bold tracking-tight sm:text-3xl text-zinc-700 dark:text-zinc-100">{{ project.title }}</h1>
 
               <h2 id="information-heading" class="sr-only">Date created</h2>
               <p class="mt-2 text-sm text-lunar-700 dark:text-lunar-300 dark:opacity-80">
@@ -143,7 +143,6 @@ const props = defineProps({
 })
 
 const {getFullUrl} = useApiData();
-const {jsonToHtml} = useSerialize();
 
 const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short' });
