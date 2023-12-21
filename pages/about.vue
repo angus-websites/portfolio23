@@ -3,6 +3,17 @@
       <div v-if="pageData" class="text-center sm:text-left">
         <TitleAndSubtitle :title="pageData.tagline" :subtitle="pageData.subtitle" />
       </div>
+      <!-- About -->
+      <div v-if="aboutData && !aboutError" class="my-10 sm:my-16">
+        <div class="prose prose-polo dark:prose-invert" v-html="aboutData.intro_html">
+
+        </div>
+      </div>
+      <div v-else-if="aboutError">
+        <ErrorState class="text-center">
+          Error fetching about section
+        </ErrorState>
+      </div>
 
       <!-- Setup -->
       <div class="my-20">
@@ -40,11 +51,16 @@ import {FavouriteSection} from "~/types/Favourites";
 import {usePageSetup} from "~/composables/usePageSetup";
 import {useApiData} from "~/composables/useApiData";
 
-const { fetchData} = useApiData();
+const { fetchData, fetchItem} = useApiData();
 const { setupPageHead, fetchPageData } = usePageSetup();
+
+type aboutSection = {
+  intro_html: string;
+}
 
 // Fetch about content
 const { data: allSections, error: error} = await fetchData<FavouriteSection[]>('/favourite-sections');
+const { data: aboutData, error: aboutError} = await fetchItem<aboutSection>('/globals/about');
 
 // Fetch page content
 const {pageData, pageError} = await fetchPageData();
