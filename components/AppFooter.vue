@@ -7,8 +7,8 @@
     >
       <div>
         <span
-            class="text-sm text-evening-sea-900 sm:text-center dark:text-blade-200"
-        >© {{ new Date().getFullYear() }} Angus Goody
+            class="text-sm text-evening-sea-900 sm:text-center dark:text-nosferatu-200"
+        ><span>© {{ new Date().getFullYear() }}</span> Angus Goody
         </span>
       </div>
 
