@@ -78,20 +78,21 @@
             <h3 class="text-sm font-semibold text-lunar-700 dark:text-aro-200">Tech stack</h3>
             <div class="my-10 grid grid-cols-4 gap-5">
               <div v-for="skill in project.stack" class="mx-auto flex flex-col items-center space-y-3">
-                <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col justify-center transition-opacity duration-200 ease-in-out'"
+                <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col overflow-hidden justify-center transition-opacity duration-200 ease-in-out'"
                 >
                   <!-- Regular icon with conditional classes -->
                   <img
                       :src="getFullUrl(skill.value.icon.url)"
                       :alt="skill.value.icon.alt"
                       :class="skill.value.icon_dark_mode ? 'dark:hidden' : ''"
+                      class="max-w-full max-h-full object-contain"
                   />
                   <!-- Dark icon (only if provided) -->
                   <img
                       v-if="skill.value.icon_dark_mode"
                       :src="getFullUrl(skill.value.icon_dark_mode.url)"
                       :alt="skill.value.icon_dark_mode.alt"
-                      class="hidden dark:inline-block"
+                      class="hidden dark:inline-block max-w-full max-h-full object-contain"
                   />
                 </div>
                 <p class="text-sm text-lunar-800 dark:text-lunar-100">
