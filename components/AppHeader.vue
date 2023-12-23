@@ -20,7 +20,7 @@
                 :key="item.id"
                 :to="item.href"
                 :class="[
-                  item.current ? 'text-evening-sea-600 dark:text-evening-sea-400' : 'text-zinc-600 dark:text-zinc-200 dark:hover:text-lunar-300 hover:text-lunar-600',
+                  item.current ? 'text-evening-sea-600 dark:text-blade-300' : 'text-zinc-600 dark:text-zinc-200 dark:hover:text-dracula-200 hover:text-lunar-600',
                   'px-3 py-2 transition'
                 ]"
 
@@ -46,7 +46,6 @@
 <script setup lang="ts">
 import AppMobileMenu from "~/components/AppMobileMenu.vue";
 const route = useRoute();
-import {HomeIcon, FolderIcon, UserCircleIcon} from "@heroicons/vue/24/outline";
 import { computed } from 'vue';
 
 const navigation = computed(() => [
@@ -55,21 +54,18 @@ const navigation = computed(() => [
     name: "Home",
     href: "/",
     current: route.name === 'index',
-    icon: HomeIcon,
   },
   {
     id: 2,
     name: "Projects",
     href: "/projects",
     current: route.name === 'projects',
-    icon: FolderIcon,
   },
   {
     id: 3,
     name: "About",
     href: "/about",
     current: route.name === 'about',
-    icon: UserCircleIcon,
   },
 ]);
 </script>
