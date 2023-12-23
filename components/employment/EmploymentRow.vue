@@ -17,15 +17,15 @@
       <!-- Employer and Title -->
       <div class="flex flex-col justify-start flex-1">
         <div
-          class="text-lg text-evening-sea-900 dark:text-zinc-100 font-semibold tracking-tight"
+          class="text-evening-sea-900 dark:text-cullen-50 font-semibold tracking-tight"
         >
           <p>{{ employment.employer }}</p>
         </div>
         <div class="flex flex-wrap justify-between">
-          <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
+          <div class="text-sm text-evening-sea-700 dark:text-blade-200">
             <p>{{ employment.job_title }}</p>
           </div>
-          <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
+          <div class="text-sm text-evening-sea-700 dark:text-vanHelsing-200">
             <span>{{ convertDateToYear(employment.start_date) }}</span> -
             <span v-if="employment.end_date">{{ convertDateToYear(employment.end_date, true) }}</span>
           </div>

@@ -40,33 +40,33 @@
         <div class="mx-auto w-full mt-14 max-w-2xl sm:mt-16 lg:col-span-3 lg:row-span-2 lg:row-end-2 lg:mt-0 lg:max-w-none">
           <div class="flex flex-col-reverse">
             <div class="">
-              <h1 class="text-2xl font-bold tracking-tight sm:text-3xl text-zinc-700 dark:text-zinc-100">{{ project.title }}</h1>
+              <h1 class="text-2xl font-bold tracking-tight sm:text-3xl text-zinc-700 dark:text-cullen-50">{{ project.title }}</h1>
 
               <h2 id="information-heading" class="sr-only">Date created</h2>
-              <p class="mt-2 text-sm text-lunar-700 dark:text-lunar-300 dark:opacity-80">
+              <p class="mt-2 text-sm text-lunar-700 dark:text-aro-400">
                 {{ formatDate(project.date_created) }}
               </p>
             </div>
 
           </div>
 
-          <p class="mt-6 text-zinc-600 dark:text-zinc-200 dark:opacity-70">
+          <p class="mt-6 text-zinc-600 dark:text-aro-100/80 ">
             <span v-if="project.medium_description">{{ project.medium_description }}</span>
             <span v-else>{{ project.short_description }}</span>
 
           </p>
 
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-            <a v-if="project.links.web_link" :href="project.links.web_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 focus:ring-offset-2 focus:ring-offset-gray-50">
+            <a v-if="project.links.web_link" :href="project.links.web_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 dark:bg-dracula-500 dark:hover:bg-dracula-600 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 focus:ring-offset-2 focus:ring-offset-gray-50">
               Website
             </a>
-            <a v-if="project.links.git_link" :href="project.links.git_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-lunar-200 px-8 py-3 text-base font-medium text-lunar-800 hover:bg-lunar-300 focus:outline-none focus:ring-2 focus:ring-lunar-500 focus:ring-offset-2 focus:ring-offset-gray-50">
+            <a v-if="project.links.git_link" :href="project.links.git_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-lunar-200 dark:bg-vonCount-100 dark:hover:bg-vonCount-200 px-8 py-3 text-base font-medium text-lunar-800 hover:bg-lunar-300 focus:outline-none focus:ring-2 focus:ring-lunar-500 focus:ring-offset-2 focus:ring-offset-gray-50">
               <span>GitHub</span>
             </a>
           </div>
 
           <div v-if="hasProjectHighlights()" class="mt-10 border-t border-zinc-300 dark:border-lunar-600/20 pt-10">
-            <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Highlights</h3>
+            <h3 class="text-sm font-semibold text-lunar-700 dark:text-aro-200">Highlights</h3>
             <div class="prose prose-sm mt-4 prose-polo dark:prose-invert">
               <ul role="list">
                 <li v-for="highlight in project.highlights" :key="highlight.id">{{ highlight.title }}</li>
@@ -75,7 +75,7 @@
           </div>
 
           <div v-if="project.stack" class="mt-10 border-t border-zinc-300  dark:border-lunar-600/20 pt-10">
-            <h3 class="text-sm font-medium text-lunar-700 dark:text-lunar-200">Tech stack</h3>
+            <h3 class="text-sm font-semibold text-lunar-700 dark:text-aro-200">Tech stack</h3>
             <div class="my-10 grid grid-cols-4 gap-5">
               <div v-for="skill in project.stack" class="mx-auto flex flex-col items-center space-y-3">
                 <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col justify-center transition-opacity duration-200 ease-in-out'"
