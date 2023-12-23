@@ -17,16 +17,16 @@
       <!-- Employer and Title -->
       <div class="flex flex-col justify-start flex-1">
         <div
-          class="text-lg text-evening-sea-900 dark:text-zinc-100 font-semibold tracking-tight"
+          class=" text-evening-sea-900 dark:text-cullen-50 font-semibold tracking-tight"
         >
           <p>{{ education.school }}</p>
         </div>
         <div class="flex flex-wrap justify-between">
-          <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
+          <div class="text-sm text-evening-sea-700 dark:text-blade-200">
             <span>{{ education.level }}</span>
-            <span v-if="education.grade" class="ml-2 text-mulberry-700 dark:text-mulberry-300">{{ education.grade }}</span>
+            <span v-if="education.grade" class="ml-2 text-mulberry-700 dark:text-buffy-100">{{ education.grade }}</span>
           </div>
-          <div class="text-sm text-evening-sea-700 dark:text-evening-sea-200">
+          <div class="text-sm text-evening-sea-700 dark:text-vanHelsing-200">
             {{ convertDateToYear(education.start_date) }} -
             <span v-if="education.end_date">{{ convertDateToYear(education.end_date, true) }}</span>
           </div>

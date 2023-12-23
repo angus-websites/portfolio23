@@ -39,8 +39,8 @@ export default {
           dark: "#DEE3E8",
         },
         "ninja": {
-          DEFAULT: "#171923",
-          dark: "#12141C",
+          DEFAULT: "#17202A",
+          dark: "#161C25",
           light: "#1B1D27"
 
         },
@@ -111,5 +111,6 @@ export default {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwind-dracula')(),
   ],
 };

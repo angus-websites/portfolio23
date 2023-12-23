@@ -1,7 +1,7 @@
 <template>
   <div
-      class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-lunar-900/40 flex flex-col h-full"
-      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 dark:hover:bg-lunar-900/60'"
+      class="group max-w-sm rounded-lg shadow bg-zinc-100 dark:bg-aro/80 flex flex-col h-full"
+      :class="project.coming_soon ? '' : ' hover:bg-zinc-50 dark:hover:bg-aro'"
   >
     <ProjectLink :project="project" class="flex-1">
       <div class="border-b dark:border-lunar-800/20">
@@ -19,15 +19,15 @@
         <div class="flex flex-row justify-between">
           <div>
             <h3
-                class="text-xl text-evening-sea-900 dark:text-zinc-50 font-semibold tracking-tight"
+                class="text-xl text-evening-sea-900 dark:text-cullen-50 font-semibold tracking-tight"
             >
               {{ project.title }}
             </h3>
           </div>
           <div>
-            <p class="text-lunar-800/80 dark:text-lunar-200/70">
+            <p class="text-lunar-800/80 dark:text-vanHelsing-100">
               <span v-if="!project.coming_soon">{{ formatDate(project.date_created) }}</span>
-              <span v-else class="group-hover:text-evening-sea-700 dark:group-hover:text-evening-sea-200">Coming soon</span>
+              <span v-else class="group-hover:text-evening-sea-700 dark:group-hover:text-blade-200">Coming soon</span>
             </p>
           </div>
         </div>
@@ -36,7 +36,7 @@
         <div v-if="project.tags" class="flex flex-row justify-start flex-wrap gap-y-3 my-5">
           <div v-for="tag in projectTags" class="mr-2">
             <span
-                class="px-2 py-1 text-xs rounded-full bg-mulberry-700 bg-opacity-90 dark:bg-mulberry-200 text-mulberry-50 dark:text-mulberry-800"
+                class="px-2 py-1 text-xs rounded-full text-mulberry-50 bg-mulberry-700 bg-opacity-90 dark:bg-dracula-200 dark:text-aro-900"
             >{{ tag.value.title }}</span
             >
           </div>

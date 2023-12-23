@@ -1,7 +1,7 @@
 <template>
   <BlockShell>
     <template #icon>
-      <AcademicCapIcon class="h-5 w-5 text-evening-sea-900 dark:text-zinc-50" />
+      <AcademicCapIcon class="h-5 w-5 text-evening-sea-900 dark:text-cullen-50" />
     </template>
 
     <template #title>
