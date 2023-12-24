@@ -44,7 +44,7 @@ if (project.value.meta) {
 }
 
 useHead({
-  title: project.value.title,
+  title: `${project.value.title} - Angus`,
   meta: [
     { name: 'title', content: checkBlankString(project.value.meta?.title ?? project.value.title, project.value.title)},
     { name: 'description', content: checkBlankString(project.value.meta?.description ?? project.value.short_description, project.value.short_description)}
