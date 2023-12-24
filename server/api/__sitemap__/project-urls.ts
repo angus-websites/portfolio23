@@ -1,4 +1,5 @@
 import { asSitemapUrl, defineSitemapEventHandler } from '#imports'
+const runtimeConfig = useRuntimeConfig()
 
 type ApiResult = {
     docs: {
@@ -9,7 +10,8 @@ type ApiResult = {
 
 export default defineSitemapEventHandler(async () => {
 
-    const apiBaseUrl = process.env.API_BASE_URL
+    const apiBaseUrl = runtimeConfig.public.apiBaseUrl
+
 
     const projects = await $fetch<ApiResult>(`${apiBaseUrl}/api/projects`).catch(
         () => null
