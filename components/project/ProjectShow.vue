@@ -57,7 +57,7 @@
           </p>
 
           <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
-            <a v-if="project.links.web_link" :href="project.links.web_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-600 dark:bg-dracula-300 dark:hover:bg-dracula-400 dark:text-nosferatu-900 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-700 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 dark:focus:ring-aro-400 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-nosferatu">
+            <a v-if="project.links.web_link" :href="project.links.web_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-evening-sea-700 dark:bg-dracula-300 dark:hover:bg-dracula-400 dark:text-nosferatu-900 px-8 py-3 text-base font-medium text-white hover:bg-evening-sea-800 focus:outline-none focus:ring-2 focus:ring-evening-sea-700 dark:focus:ring-aro-400 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-nosferatu">
               Website
             </a>
             <a v-if="project.links.git_link" :href="project.links.git_link" target="_blank" class="flex w-full items-center justify-center rounded-md border border-transparent bg-lunar-200 dark:bg-vonCount-100 dark:hover:bg-vonCount-200 px-8 py-3 text-base font-medium text-lunar-800 hover:bg-lunar-300 focus:outline-none focus:ring-2 focus:ring-lunar-500 dark:focus:ring-vonCount-200 focus:ring-offset-2 focus:ring-offset-gray-50 dark:focus:ring-offset-nosferatu">
