@@ -10,7 +10,9 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    compressPublicAssets: true,
+    compressPublicAssets: {
+      brotli: true
+    }
   },
   runtimeConfig: {
     public: {
