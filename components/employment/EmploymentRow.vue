@@ -9,7 +9,7 @@
             height="100"
             class="w-full h-full object-cover bg-white"
             :src="getFullUrl(employment.icon.url)"
-            :alt="employment.icon.alt"
+            :alt="employment.icon.alt ?? 'Placeholder icon'"
           />
         </div>
       </div>
