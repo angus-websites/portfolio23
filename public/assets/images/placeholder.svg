@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 500 500" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-597.497,-3222.34)">
+        <g id="rose" transform="matrix(2.31481,0,0,3.41126,1245.65,3222.34)">
+            <rect x="-280" y="0" width="216" height="146.574" style="fill:none;"/>
+            <clipPath id="_clip1">
+                <rect x="-280" y="0" width="216" height="146.574"/>
+            </clipPath>
+            <g clip-path="url(#_clip1)">
+                <g transform="matrix(2.49507,0,0,1.36285,-395.407,-1218.5)">
+                    <rect x="46.254" y="894.087" width="86.571" height="107.55" style="fill:white;"/>
+                </g>
+                <g id="question-mark-circle" transform="matrix(3.9312,0,0,2.66764,-219.174,41.2751)">
+                    <path d="M12,2C6.477,2 2,6.477 2,12C2,17.523 6.477,22 12,22C17.523,22 22,17.523 22,12C22,6.477 17.523,2 12,2ZM13,19L11,19L11,17L13,17L13,19ZM15.067,11.254L14.172,12.172C13.448,12.896 13,13.5 13,15L11,15L11,14.5C11,13.396 11.448,12.396 12.171,11.672L13.414,10.414C13.776,10.052 14,9.552 14,9C14,7.895 13.105,7 12,7C10.896,7 10,7.895 10,9L8,9C8,6.791 9.791,5 12,5C14.209,5 16,6.791 16,9C16,9.88 15.643,10.677 15.067,11.254Z" style="fill:rgb(174,174,174);fill-rule:nonzero;"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
