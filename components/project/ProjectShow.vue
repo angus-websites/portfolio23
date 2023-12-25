@@ -80,20 +80,7 @@
               <div v-for="skill in project.stack" class="mx-auto flex flex-col items-center space-y-3">
                 <div :class="'w-10 h-10 xs:w-14 xs:h-14 flex flex-col overflow-hidden justify-center transition-opacity duration-200 ease-in-out'"
                 >
-                  <!-- Regular icon with conditional classes -->
-                  <img
-                      :src="getFullUrl(skill.value.icon.url)"
-                      :alt="skill.value.icon.alt"
-                      :class="skill.value.icon_dark_mode ? 'dark:hidden' : ''"
-                      class="max-w-full max-h-full object-contain"
-                  />
-                  <!-- Dark icon (only if provided) -->
-                  <img
-                      v-if="skill.value.icon_dark_mode"
-                      :src="getFullUrl(skill.value.icon_dark_mode.url)"
-                      :alt="skill.value.icon_dark_mode.alt"
-                      class="hidden dark:inline-block max-w-full max-h-full object-contain"
-                  />
+                  <SkillIcon :skill="skill.value" />
                 </div>
                 <p class="text-sm text-lunar-800 dark:text-lunar-100">
                   {{ skill.value.name }}
@@ -134,7 +121,7 @@ import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/vue'
 import {Project} from "~/types/Project.js";
 import {PropType} from "vue";
 import {useApiData} from "~/composables/useApiData";
-import {useSerialize} from "~/composables/useSerialize";
+import SkillIcon from "~/components/skills/SkillIcon.vue";
 
 const props = defineProps({
   project: {
