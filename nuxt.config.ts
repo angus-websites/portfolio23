@@ -1,13 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/color-mode", "nuxt-simple-sitemap", 'nuxt-simple-robots'],
+  modules: ["@nuxtjs/color-mode", "nuxt-simple-sitemap", 'nuxt-simple-robots', '@nuxt/image',],
   css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
+  },
+  nitro: {
+    compressPublicAssets: true,
   },
   runtimeConfig: {
     public: {

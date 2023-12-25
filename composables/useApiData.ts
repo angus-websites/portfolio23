@@ -9,6 +9,9 @@ export function useApiData<T = any>() {
      * Get the full URL for an asset
      */
     function getFullUrl<T = any>(assetPath: string): string {
+        if (!assetPath) {
+            return '/assets/images/placeholder.svg';
+        }
         if (assetPath.startsWith('http://') || assetPath.startsWith('https://')) {
             return assetPath;
         }

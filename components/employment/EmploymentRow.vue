@@ -4,12 +4,12 @@
       <!-- Logo -->
       <div class="">
         <div class="rounded-full w-10 h-10 border relative overflow-hidden">
-          <img v-if="employment.icon"
+          <NuxtImg v-if="employment.icon"
             width="100"
             height="100"
             class="w-full h-full object-cover bg-white"
             :src="getFullUrl(employment.icon.url)"
-            :alt="employment.icon.alt"
+            :alt="employment.icon.alt ?? 'Placeholder icon'"
           />
         </div>
       </div>
