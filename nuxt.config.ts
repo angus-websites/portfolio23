@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/color-mode", "nuxt-simple-sitemap", 'nuxt-simple-robots', '@nuxt/image',],
+  modules: ["@nuxtjs/color-mode", "nuxt-simple-sitemap", 'nuxt-simple-robots'],
   css: ["~/assets/css/main.css"],
   postcss: {
     plugins: {
@@ -10,7 +10,9 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    compressPublicAssets: true,
+    compressPublicAssets: {
+      brotli: true
+    }
   },
   runtimeConfig: {
     public: {

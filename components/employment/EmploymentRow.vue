@@ -4,7 +4,7 @@
       <!-- Logo -->
       <div class="">
         <div class="rounded-full w-10 h-10 border relative overflow-hidden">
-          <NuxtImg v-if="employment.icon"
+          <img v-if="employment.icon"
             width="100"
             height="100"
             class="w-full h-full object-cover bg-white"
