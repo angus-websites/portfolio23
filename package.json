@@ -37,6 +37,7 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.16",
     "@heroicons/vue": "latest",
+    "@nuxt/image": "^1.1.0",
     "postcss-loader": "^7.3.3",
     "tailwind-dracula": "^1.1.0",
     "vue-spinner": "^1.0.4"
