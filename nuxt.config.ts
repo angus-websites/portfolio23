@@ -9,6 +9,9 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  nitro: {
+    compressPublicAssets: true,
+  },
   runtimeConfig: {
     public: {
       // To override, set the environment variable NUXT_PUBLIC_API_BASE_URL
