@@ -18,11 +18,11 @@
         <!-- Top row -->
         <div class="flex flex-row justify-between">
           <div>
-            <h3
+            <p
                 class="text-xl text-evening-sea-900 dark:text-cullen-50 font-semibold tracking-tight"
             >
               {{ project.title }}
-            </h3>
+            </p>
           </div>
           <div>
             <p class="text-lunar-800/80 dark:text-vanHelsing-100">
