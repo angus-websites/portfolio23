@@ -16,7 +16,7 @@
       </div>
       <ul
 
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 sm:gap-3 "
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 sm:gap-7 "
       >
 
         <li v-if="projects.length > 0" v-for="project in projects" class="w-full">
