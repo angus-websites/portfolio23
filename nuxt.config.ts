@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: true,
   devtools: { enabled: true },
   modules: ["@nuxtjs/color-mode", "nuxt-simple-sitemap", 'nuxt-simple-robots'],
   css: ["~/assets/css/main.css"],
