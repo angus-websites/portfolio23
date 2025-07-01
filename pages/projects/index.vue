@@ -44,8 +44,9 @@ const { fetchData } = useApiData();
 const { setupPageHead, fetchPageData } = usePageSetup();
 
 
-const { data: projects, error: error} = await fetchData<Project[]>('/projects');
+const { data: projects, error: error} = await fetchData<Project[]>('/projects?limit=15'); // TODO paginate
 
+console.log(projects)
 // Fetch page content
 const {pageData, pageError} = await fetchPageData();
 
