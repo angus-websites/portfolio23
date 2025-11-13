@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/color-mode", "nuxt-simple-sitemap", 'nuxt-simple-robots'],
   css: ["~/assets/css/main.css"],
+  site: { indexable: false },
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -12,8 +13,8 @@ export default defineNuxtConfig({
   },
   nitro: {
     compressPublicAssets: {
-      brotli: true
-    }
+      brotli: true,
+    },
   },
   runtimeConfig: {
     public: {
@@ -26,5 +27,5 @@ export default defineNuxtConfig({
     sources: [
       '/api/__sitemap__/project-urls',
     ]
-  }
+  },
 });
