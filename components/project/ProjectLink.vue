@@ -10,7 +10,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import {PropType} from "vue/dist/vue";
+import {PropType} from "vue";
 import {Project} from "~/types/Project";
 
 defineProps({
